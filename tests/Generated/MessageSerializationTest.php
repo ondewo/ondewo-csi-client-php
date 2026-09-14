@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Ondewo\Csi\Tests\Generated;
 
 use Google\Protobuf\Timestamp;
+use Ondewo\Csi\S2sStreamResponse;
 use Ondewo\Nlu\Agent;
 use Ondewo\Nlu\AgentStatus;
 use Ondewo\Nlu\AgentView;
@@ -18,9 +19,9 @@ use UnexpectedValueException;
  * generator: a field that is declared but never written, a presence field that silently drops its
  * zero value, an enum whose zero constant moved.
  *
- * PRODUCT-SPECIFIC: the messages below come from the ondewo-nlu-api protos that ondewo-csi-api
- * vendors and this client therefore ships. Replicating this suite to another ONDEWO client means
- * swapping them for that api's own messages.
+ * PRODUCT-SPECIFIC: the messages below come from ondewo-csi-api's own protos and from the
+ * ondewo-nlu-api protos it vendors, both of which this client ships. Replicating this suite to
+ * another ONDEWO client means swapping them for that api's own messages.
  */
 final class MessageSerializationTest extends TestCase
 {
@@ -114,6 +115,37 @@ final class MessageSerializationTest extends TestCase
 
         self::assertSame('page-2', $parsed->getPageToken());
         self::assertSame(AgentView::AGENT_VIEW_FULL, $parsed->getAgentView());
+    }
+
+    public function testAnIntegerFieldSurvivesAJsonRoundTrip(): void
+    {
+        // Its own case because google/protobuf's PURE-PHP JSON parser range-checks every integer
+        // with bccomp(): without ext-bcmath this dies with "Call to undefined function
+        // Google\Protobuf\Internal\bccomp()" on the first int field it meets. The extension is a
+        // `suggest` of google/protobuf, not a `require`, so nothing else would surface that.
+        // int32 and uint64 are both here: JSON spells the first as a number and the second as a
+        // string, which are different branches of the parser - and of the range check.
+        $response = new S2sStreamResponse();
+        $response->setUtteranceId('utterance-1');
+        $response->setChunkIndex(2);
+        $response->setLastChunk(true);
+        $response->setTurnEpoch(1700000000123);
+
+        $json = $response->serializeToJsonString();
+
+        // The integers have to REACH the JSON or the parser never range-checks them, and the case
+        // would be green with or without the extension: a proto3 scalar at its zero value is
+        // omitted from the JSON entirely.
+        self::assertStringContainsString('"chunkIndex":2', $json);
+        self::assertStringContainsString('"turnEpoch":"1700000000123"', $json);
+
+        $parsed = new S2sStreamResponse();
+        $parsed->mergeFromJsonString($json);
+
+        self::assertSame('utterance-1', $parsed->getUtteranceId());
+        self::assertSame(2, $parsed->getChunkIndex());
+        self::assertTrue($parsed->getLastChunk());
+        self::assertSame(1700000000123, $parsed->getTurnEpoch());
     }
 
     public function testTheEnumZeroValueIsTheUnspecifiedMember(): void
