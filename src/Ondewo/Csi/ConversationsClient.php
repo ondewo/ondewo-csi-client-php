@@ -253,4 +253,31 @@ class ConversationsClient extends \Grpc\BaseStub {
         $metadata, $options);
     }
 
+    /**
+     * <p>Set the per-call operator media control level: mute the bot and/or pause its listening.</p>
+     *
+     * <p>Pushed by ondewo-sip only, which owns the per-call level and authenticates with its in-container token
+     * (the <code>x-ondewo-sip-in-container-token</code> metadatum). A request without a valid token is refused.</p>
+     *
+     * <p>The request carries the FULL effective level, never a toggle. The server applies it only when its
+     * <code>generation</code> is strictly greater than the last applied generation and otherwise answers
+     * <code>stale=true</code> without changing anything, so a push that arrives after the next call's resync can
+     * never re-apply an old call's level. The level is cleared at <code>CALL_ENDED</code>; the generation is kept.</p>
+     *
+     * <p>This RPC never changes the control status of <code>GetControlStream</code> / <code>SetControlStatus</code>
+     * (the barge-in slot). A level change is announced on the control stream as a
+     * <code>ControlStreamResponse</code> with <code>media_control</code> set.</p>
+     * @param \Ondewo\Csi\CallMediaControlLevel $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function SetCallMediaControl(\Ondewo\Csi\CallMediaControlLevel $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/ondewo.csi.Conversations/SetCallMediaControl',
+        $argument,
+        ['\Ondewo\Csi\SetCallMediaControlResponse', 'decode'],
+        $metadata, $options);
+    }
+
 }

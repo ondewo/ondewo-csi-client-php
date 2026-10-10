@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Ondewo\Csi\Tests\Generated;
 
 use Google\Protobuf\Timestamp;
+use Ondewo\Csi\CallMediaControlLevel;
+use Ondewo\Csi\ControlStreamResponse;
 use Ondewo\Csi\S2sStreamResponse;
 use Ondewo\Nlu\Agent;
 use Ondewo\Nlu\AgentStatus;
@@ -55,6 +57,34 @@ final class MessageSerializationTest extends TestCase
 
         // Byte-for-byte stability, which field-by-field getters alone would not prove.
         self::assertSame($bytes, $parsed->serializeToString());
+    }
+
+    /**
+     * `ControlStreamResponse.media_control`, added in ondewo-csi-api 5.6.0, is set ONLY on
+     * media-control messages - a client tells them apart by its presence, so it must survive the
+     * wire and stay unset on every other message.
+     */
+    public function testTheMediaControlLevelOfAControlStreamMessageSurvivesABinaryRoundTrip(): void
+    {
+        $level = new CallMediaControlLevel();
+        $level->setBotMuted(true);
+        $level->setListeningPaused(true);
+        $level->setGeneration(7);
+        $level->setReason('operator');
+
+        $message = new ControlStreamResponse();
+        $message->setMediaControl($level);
+
+        $parsed = new ControlStreamResponse();
+        $parsed->mergeFromString($message->serializeToString());
+
+        self::assertTrue($parsed->hasMediaControl());
+        self::assertTrue($parsed->getMediaControl()->getBotMuted());
+        self::assertTrue($parsed->getMediaControl()->getListeningPaused());
+        self::assertSame(7, $parsed->getMediaControl()->getGeneration());
+        self::assertSame('operator', $parsed->getMediaControl()->getReason());
+
+        self::assertFalse((new ControlStreamResponse())->hasMediaControl());
     }
 
     public function testAnUnsetSubMessageStaysUnset(): void

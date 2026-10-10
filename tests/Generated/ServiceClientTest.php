@@ -93,6 +93,7 @@ final class ServiceClientTest extends TestCase
             'ListS2sPipelines',
             'CheckUpstreamHealth',
             'SetControlStatus',
+            'SetCallMediaControl',
         ] as $method) {
             yield $method => [$method];
         }
@@ -121,9 +122,9 @@ final class ServiceClientTest extends TestCase
         $methods = get_class_methods(ConversationsClient::class);
 
         self::assertContains('CreateS2sPipeline', $methods);
-        // 9 RPCs + the constructor + the 5 public methods inherited from \Grpc\BaseStub.
+        // 10 RPCs + the constructor + the 5 public methods inherited from \Grpc\BaseStub.
         self::assertGreaterThanOrEqual(
-            15,
+            16,
             count($methods),
             'ConversationsClient exposes suspiciously few methods - the service proto may not have been compiled'
         );
