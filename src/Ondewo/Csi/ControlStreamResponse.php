@@ -28,6 +28,19 @@ class ControlStreamResponse extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint64 epoch = 2;</code>
      */
     protected $epoch = 0;
+    /**
+     * <p>Optional. The per-call operator media control level. Set ONLY on media-control messages: pushed when the
+     * level changes (<code>SetCallMediaControl</code>) and sent as the seed on every <code>GetControlStream</code>
+     * connect.</p>
+     * <p>A message that has this field set is a media-control message and nothing else: a client must handle it
+     * and must NOT read its <code>control_status</code> / <code>epoch</code> as a control status transition. The
+     * server echoes the current control status and epoch in it, but a client that applied that
+     * <code>control_status</code> (e.g. <code>OK</code>) would un-latch a pending <code>BARGE_IN</code>.
+     * Messages without this field keep their meaning unchanged.</p>
+     *
+     * Generated from protobuf field <code>.ondewo.csi.CallMediaControlLevel media_control = 3;</code>
+     */
+    protected $media_control = null;
 
     /**
      * Constructor.
@@ -39,6 +52,15 @@ class ControlStreamResponse extends \Google\Protobuf\Internal\Message
      *           Control status
      *     @type int|string $epoch
      *           Monotonic barge-in epoch/sequence number so control status transitions are correlatable with the <code>S2sStreamResponse</code> <code>turn_epoch</code> and a second barge-in during a resumed remainder can never be coalesced away
+     *     @type \Ondewo\Csi\CallMediaControlLevel $media_control
+     *           <p>Optional. The per-call operator media control level. Set ONLY on media-control messages: pushed when the
+     *           level changes (<code>SetCallMediaControl</code>) and sent as the seed on every <code>GetControlStream</code>
+     *           connect.</p>
+     *           <p>A message that has this field set is a media-control message and nothing else: a client must handle it
+     *           and must NOT read its <code>control_status</code> / <code>epoch</code> as a control status transition. The
+     *           server echoes the current control status and epoch in it, but a client that applied that
+     *           <code>control_status</code> (e.g. <code>OK</code>) would un-latch a pending <code>BARGE_IN</code>.
+     *           Messages without this field keep their meaning unchanged.</p>
      * }
      */
     public function __construct($data = NULL) {
@@ -94,6 +116,56 @@ class ControlStreamResponse extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint64($var);
         $this->epoch = $var;
+
+        return $this;
+    }
+
+    /**
+     * <p>Optional. The per-call operator media control level. Set ONLY on media-control messages: pushed when the
+     * level changes (<code>SetCallMediaControl</code>) and sent as the seed on every <code>GetControlStream</code>
+     * connect.</p>
+     * <p>A message that has this field set is a media-control message and nothing else: a client must handle it
+     * and must NOT read its <code>control_status</code> / <code>epoch</code> as a control status transition. The
+     * server echoes the current control status and epoch in it, but a client that applied that
+     * <code>control_status</code> (e.g. <code>OK</code>) would un-latch a pending <code>BARGE_IN</code>.
+     * Messages without this field keep their meaning unchanged.</p>
+     *
+     * Generated from protobuf field <code>.ondewo.csi.CallMediaControlLevel media_control = 3;</code>
+     * @return \Ondewo\Csi\CallMediaControlLevel|null
+     */
+    public function getMediaControl()
+    {
+        return $this->media_control;
+    }
+
+    public function hasMediaControl()
+    {
+        return isset($this->media_control);
+    }
+
+    public function clearMediaControl()
+    {
+        unset($this->media_control);
+    }
+
+    /**
+     * <p>Optional. The per-call operator media control level. Set ONLY on media-control messages: pushed when the
+     * level changes (<code>SetCallMediaControl</code>) and sent as the seed on every <code>GetControlStream</code>
+     * connect.</p>
+     * <p>A message that has this field set is a media-control message and nothing else: a client must handle it
+     * and must NOT read its <code>control_status</code> / <code>epoch</code> as a control status transition. The
+     * server echoes the current control status and epoch in it, but a client that applied that
+     * <code>control_status</code> (e.g. <code>OK</code>) would un-latch a pending <code>BARGE_IN</code>.
+     * Messages without this field keep their meaning unchanged.</p>
+     *
+     * Generated from protobuf field <code>.ondewo.csi.CallMediaControlLevel media_control = 3;</code>
+     * @param \Ondewo\Csi\CallMediaControlLevel $var
+     * @return $this
+     */
+    public function setMediaControl($var)
+    {
+        GPBUtil::checkMessage($var, \Ondewo\Csi\CallMediaControlLevel::class);
+        $this->media_control = $var;
 
         return $this;
     }

@@ -2,6 +2,34 @@
 
 *****************
 
+## Release ONDEWO CSI PHP Client 5.6.0
+
+### New Features
+
+* Tracking API Version [5.6.0](https://github.com/ondewo/ondewo-csi-api/releases/tag/5.6.0) ( [Documentation](https://ondewo.github.io/ondewo-csi-api/) ).
+  The regenerated `Ondewo\Csi\ConversationsClient` and messages carry the API's new surface:
+  * The new unary RPC `SetCallMediaControl` (`CallMediaControlLevel` -> `SetCallMediaControlResponse`): per-call
+    operator media control pushed by ondewo-sip, carrying the full effective level (`bot_muted`,
+    `listening_paused`), a monotonic `generation` and a `reason`; the response reports the `applied` level,
+    `changed`, `stale`, `bot_playback_in_flight` and a `refusal_reason`.
+  * `ControlStreamResponse.media_control`: set only on media-control messages of `GetControlStream`. Handle such a
+    message as media control and do not apply its echoed `control_status`.
+  * `SipTrigger.INVITE` is documented as not implemented (use the ondewo-vtsi `Calls.InviteToCall` RPC).
+* Purely additive: no field, enum value or RPC was renumbered or removed, so code written against 5.5.x keeps
+  working.
+
+### Improvements
+
+* Proto compiler pinned to [5.15.5](https://github.com/ondewo/ondewo-proto-compiler/releases/tag/5.15.5).
+
+### Tests
+
+* `tests/Generated/ServiceClientTest.php` covers `SetCallMediaControl`.
+* `tests/Generated/MessageSerializationTest.php` round-trips `ControlStreamResponse.media_control` and checks it
+  stays unset on other messages.
+
+*****************
+
 ## Release ONDEWO CSI PHP Client 5.5.1
 
 ### Improvements

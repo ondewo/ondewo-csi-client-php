@@ -51,7 +51,8 @@ class SipTriggerType
      */
     const TRANSFER = 5;
     /**
-     * invite to conference call
+     * invite to conference call. NOT IMPLEMENTED: ondewo-csi cannot reach ondewo-vtsi, which owns call
+     * participants. Invite a softphone with the ondewo-vtsi <code>Calls.InviteToCall</code> RPC instead
      *
      * Generated from protobuf enum <code>INVITE = 6;</code>
      */
