@@ -10,14 +10,14 @@ use Ondewo\Csi\Auth\BearerTokenAuthenticator;
 use Ondewo\Csi\ConversationsClient;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
-use ReflectionMethod;
 
 /**
  * Constructs the generated service stubs against a dummy target. gRPC channels connect lazily, so
  * nothing here touches the network - but the stub, its channel options and its method surface are
  * all real.
  *
- * PRODUCT-SPECIFIC: the service and method names below come from ondewo-csi-api.
+ * The set of service clients is DERIVED from the generated descriptors (GeneratedServices); only
+ * `ConversationsClient`, used to exercise the channel options, is named here.
  */
 final class ServiceClientTest extends TestCase
 {
@@ -62,72 +62,34 @@ final class ServiceClientTest extends TestCase
         self::assertStringContainsString(self::DUMMY_TARGET, $client->getTarget());
     }
 
-    #[DataProvider('unaryMethods')]
-    public function testTheExpectedUnaryMethodsExist(string $method): void
+    /**
+     * @param class-string<BaseStub> $client
+     */
+    #[DataProvider('declaredServiceClients')]
+    public function testEveryDeclaredServiceClientIsConstructedAgainstAnInsecureChannel(string $client): void
     {
-        self::assertTrue(
-            method_exists(ConversationsClient::class, $method),
-            ConversationsClient::class . '::' . $method . '() is missing from the generated stub'
-        );
+        $stub = $this->open(new $client(self::DUMMY_TARGET, [
+            'credentials' => ChannelCredentials::createInsecure(),
+        ]));
 
-        $reflected = new ReflectionMethod(ConversationsClient::class, $method);
-        self::assertTrue($reflected->isPublic());
-        // <request message>, array $metadata = [], array $options = []
-        self::assertSame(3, $reflected->getNumberOfParameters());
-        self::assertSame(1, $reflected->getNumberOfRequiredParameters());
+        self::assertInstanceOf(BaseStub::class, $stub);
+        self::assertStringContainsString(self::DUMMY_TARGET, $stub->getTarget());
     }
 
     /**
-     * The unary half of `ondewo.csi.Conversations`. The two streaming RPCs of the same service
-     * (`S2sStream`, `GetControlStream`) are asserted separately below.
+     * Every service the generated descriptors declare - derived, not listed, so a service added by
+     * the next ondewo-csi-api release is constructed here without anybody editing this file.
+     * The method surface itself is ServiceSurfaceTest's job.
      *
-     * @return iterable<string, array{string}>
+     * @return iterable<string, array{class-string<BaseStub>}>
      */
-    public static function unaryMethods(): iterable
+    public static function declaredServiceClients(): iterable
     {
-        foreach ([
-            'CreateS2sPipeline',
-            'GetS2sPipeline',
-            'UpdateS2sPipeline',
-            'DeleteS2sPipeline',
-            'ListS2sPipelines',
-            'CheckUpstreamHealth',
-            'SetControlStatus',
-            'SetCallMediaControl',
-        ] as $method) {
-            yield $method => [$method];
+        foreach (GeneratedServices::fromDescriptors() as $service) {
+            /** @var class-string<BaseStub> $client */
+            $client = $service['client'];
+            yield $service['package'] . '.' . $service['service'] => [$client];
         }
-    }
-
-    public function testABidirectionalStreamingMethodIsGenerated(): void
-    {
-        self::assertTrue(method_exists(ConversationsClient::class, 'S2sStream'));
-
-        $reflected = new ReflectionMethod(ConversationsClient::class, 'S2sStream');
-        // A bidi stream takes no request message - only $metadata and $options.
-        self::assertSame(0, $reflected->getNumberOfRequiredParameters());
-    }
-
-    public function testAServerStreamingMethodIsGenerated(): void
-    {
-        self::assertTrue(method_exists(ConversationsClient::class, 'GetControlStream'));
-
-        $reflected = new ReflectionMethod(ConversationsClient::class, 'GetControlStream');
-        // A server stream still takes its single request message, unlike the bidi one above.
-        self::assertSame(1, $reflected->getNumberOfRequiredParameters());
-    }
-
-    public function testTheGeneratedMethodSurfaceIsNotEmpty(): void
-    {
-        $methods = get_class_methods(ConversationsClient::class);
-
-        self::assertContains('CreateS2sPipeline', $methods);
-        // 10 RPCs + the constructor + the 5 public methods inherited from \Grpc\BaseStub.
-        self::assertGreaterThanOrEqual(
-            16,
-            count($methods),
-            'ConversationsClient exposes suspiciously few methods - the service proto may not have been compiled'
-        );
     }
 
     private function open(BaseStub $client): BaseStub
