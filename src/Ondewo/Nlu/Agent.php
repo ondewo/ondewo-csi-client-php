@@ -111,6 +111,13 @@ class Agent extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string modified_by = 14;</code>
      */
     protected $modified_by = '';
+    /**
+     * Optional. The agent's settings of warm transfer intros (<code>Sessions.PrepareWarmTransferIntro</code>).
+     * Unset = intros are enabled while the server's warm transfer feature is switched on, with the built-in texts.
+     *
+     * Generated from protobuf field <code>.ondewo.nlu.WarmTransferAgentSettings warm_transfer_settings = 15;</code>
+     */
+    protected $warm_transfer_settings = null;
 
     /**
      * Constructor.
@@ -157,6 +164,9 @@ class Agent extends \Google\Protobuf\Internal\Message
      *           User id in form of a valid UUID.
      *     @type string $modified_by
      *           User id in form of a valid UUID.
+     *     @type \Ondewo\Nlu\WarmTransferAgentSettings $warm_transfer_settings
+     *           Optional. The agent's settings of warm transfer intros (<code>Sessions.PrepareWarmTransferIntro</code>).
+     *           Unset = intros are enabled while the server's warm transfer feature is switched on, with the built-in texts.
      * }
      */
     public function __construct($data = NULL) {
@@ -573,6 +583,43 @@ class Agent extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, true);
         $this->modified_by = $var;
+
+        return $this;
+    }
+
+    /**
+     * Optional. The agent's settings of warm transfer intros (<code>Sessions.PrepareWarmTransferIntro</code>).
+     * Unset = intros are enabled while the server's warm transfer feature is switched on, with the built-in texts.
+     *
+     * Generated from protobuf field <code>.ondewo.nlu.WarmTransferAgentSettings warm_transfer_settings = 15;</code>
+     * @return \Ondewo\Nlu\WarmTransferAgentSettings|null
+     */
+    public function getWarmTransferSettings()
+    {
+        return $this->warm_transfer_settings;
+    }
+
+    public function hasWarmTransferSettings()
+    {
+        return isset($this->warm_transfer_settings);
+    }
+
+    public function clearWarmTransferSettings()
+    {
+        unset($this->warm_transfer_settings);
+    }
+
+    /**
+     * Optional. The agent's settings of warm transfer intros (<code>Sessions.PrepareWarmTransferIntro</code>).
+     * Unset = intros are enabled while the server's warm transfer feature is switched on, with the built-in texts.
+     *
+     * Generated from protobuf field <code>.ondewo.nlu.WarmTransferAgentSettings warm_transfer_settings = 15;</code>
+     * @param \Ondewo\Nlu\WarmTransferAgentSettings $var
+     * @return $this
+     */
+    public function setWarmTransferSettings(\Ondewo\Nlu\WarmTransferAgentSettings|null $var)
+    {
+        $this->warm_transfer_settings = $var;
 
         return $this;
     }

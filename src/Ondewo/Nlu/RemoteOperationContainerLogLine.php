@@ -49,13 +49,22 @@ class RemoteOperationContainerLogLine extends \Google\Protobuf\Internal\Message
      */
     protected $container_name = '';
     /**
-     * The monotonically-increasing sequence number of this line within its container&apos;s captured log
-     * (assigned by the server-side capture). Used as the cursor for infinite-scroll paging. <code>0</code>
-     * when the line was produced by a legacy path that did not assign a sequence.
+     * Ordering cursor of this line, assigned by the database. Monotonically increasing WITHIN ONE CONTAINER but
+     * NOT contiguous: values come from a sequence shared by every log stream and are removed by retention. Never
+     * compute the next cursor as <code>seq + 1</code>; pass it back as <code>after_seq</code> /
+     * <code>before_seq</code> (strictly greater / smaller) or use <code>resume_token</code>. <code>0</code> when
+     * the line was produced by a legacy path that did not assign a sequence.
      *
      * Generated from protobuf field <code>int64 seq = 6;</code>
      */
     protected $seq = 0;
+    /**
+     * Resource name of the log stream this line belongs to (see
+     * <a href="index.html#ondewo.nlu.CaiLogEntry">CaiLogEntry.log_stream</a>).
+     *
+     * Generated from protobuf field <code>string log_stream = 7;</code>
+     */
+    protected $log_stream = '';
 
     /**
      * Constructor.
@@ -76,9 +85,14 @@ class RemoteOperationContainerLogLine extends \Google\Protobuf\Internal\Message
      *     @type string $container_name
      *           The docker container name this line was produced by. Empty when unavailable.
      *     @type int|string $seq
-     *           The monotonically-increasing sequence number of this line within its container&apos;s captured log
-     *           (assigned by the server-side capture). Used as the cursor for infinite-scroll paging. <code>0</code>
-     *           when the line was produced by a legacy path that did not assign a sequence.
+     *           Ordering cursor of this line, assigned by the database. Monotonically increasing WITHIN ONE CONTAINER but
+     *           NOT contiguous: values come from a sequence shared by every log stream and are removed by retention. Never
+     *           compute the next cursor as <code>seq + 1</code>; pass it back as <code>after_seq</code> /
+     *           <code>before_seq</code> (strictly greater / smaller) or use <code>resume_token</code>. <code>0</code> when
+     *           the line was produced by a legacy path that did not assign a sequence.
+     *     @type string $log_stream
+     *           Resource name of the log stream this line belongs to (see
+     *           <a href="index.html#ondewo.nlu.CaiLogEntry">CaiLogEntry.log_stream</a>).
      * }
      */
     public function __construct($data = NULL) {
@@ -230,9 +244,11 @@ class RemoteOperationContainerLogLine extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * The monotonically-increasing sequence number of this line within its container&apos;s captured log
-     * (assigned by the server-side capture). Used as the cursor for infinite-scroll paging. <code>0</code>
-     * when the line was produced by a legacy path that did not assign a sequence.
+     * Ordering cursor of this line, assigned by the database. Monotonically increasing WITHIN ONE CONTAINER but
+     * NOT contiguous: values come from a sequence shared by every log stream and are removed by retention. Never
+     * compute the next cursor as <code>seq + 1</code>; pass it back as <code>after_seq</code> /
+     * <code>before_seq</code> (strictly greater / smaller) or use <code>resume_token</code>. <code>0</code> when
+     * the line was produced by a legacy path that did not assign a sequence.
      *
      * Generated from protobuf field <code>int64 seq = 6;</code>
      * @return int|string
@@ -243,9 +259,11 @@ class RemoteOperationContainerLogLine extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * The monotonically-increasing sequence number of this line within its container&apos;s captured log
-     * (assigned by the server-side capture). Used as the cursor for infinite-scroll paging. <code>0</code>
-     * when the line was produced by a legacy path that did not assign a sequence.
+     * Ordering cursor of this line, assigned by the database. Monotonically increasing WITHIN ONE CONTAINER but
+     * NOT contiguous: values come from a sequence shared by every log stream and are removed by retention. Never
+     * compute the next cursor as <code>seq + 1</code>; pass it back as <code>after_seq</code> /
+     * <code>before_seq</code> (strictly greater / smaller) or use <code>resume_token</code>. <code>0</code> when
+     * the line was produced by a legacy path that did not assign a sequence.
      *
      * Generated from protobuf field <code>int64 seq = 6;</code>
      * @param int|string $var
@@ -255,6 +273,34 @@ class RemoteOperationContainerLogLine extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->seq = $var;
+
+        return $this;
+    }
+
+    /**
+     * Resource name of the log stream this line belongs to (see
+     * <a href="index.html#ondewo.nlu.CaiLogEntry">CaiLogEntry.log_stream</a>).
+     *
+     * Generated from protobuf field <code>string log_stream = 7;</code>
+     * @return string
+     */
+    public function getLogStream()
+    {
+        return $this->log_stream;
+    }
+
+    /**
+     * Resource name of the log stream this line belongs to (see
+     * <a href="index.html#ondewo.nlu.CaiLogEntry">CaiLogEntry.log_stream</a>).
+     *
+     * Generated from protobuf field <code>string log_stream = 7;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setLogStream(string $var)
+    {
+        GPBUtil::checkString($var, true);
+        $this->log_stream = $var;
 
         return $this;
     }

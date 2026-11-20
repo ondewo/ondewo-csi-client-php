@@ -154,6 +154,16 @@ class QueryParameters extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .ondewo.nlu.S2tTranscription transcriptions = 14;</code>
      */
     private $transcriptions;
+    /**
+     * Optional. Marks the request as a preemptive draft: a turn the client (e.g. ondewo-csi) starts speculatively,
+     * e.g. on a partial transcript, and may later discard with <code>TurnControl.discard_draft</code>. The server
+     * records the mark on the session step of this request. A <code>DiscardDraft</code> deletes only a session step
+     * of the same session whose request carried this mark. A server that does not know this field ignores it and
+     * keeps the step.
+     *
+     * Generated from protobuf field <code>bool preemptive_draft = 15;</code>
+     */
+    protected $preemptive_draft = false;
 
     /**
      * Constructor.
@@ -247,6 +257,12 @@ class QueryParameters extends \Google\Protobuf\Internal\Message
      *           This field can also be used for a customized tracking id or tag id
      *     @type \Ondewo\Nlu\S2tTranscription[] $transcriptions
      *           transcriptions of the user input sorted by score
+     *     @type bool $preemptive_draft
+     *           Optional. Marks the request as a preemptive draft: a turn the client (e.g. ondewo-csi) starts speculatively,
+     *           e.g. on a partial transcript, and may later discard with <code>TurnControl.discard_draft</code>. The server
+     *           records the mark on the session step of this request. A <code>DiscardDraft</code> deletes only a session step
+     *           of the same session whose request carried this mark. A server that does not know this field ignores it and
+     *           keeps the step.
      * }
      */
     public function __construct($data = NULL) {
@@ -725,6 +741,39 @@ class QueryParameters extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Ondewo\Nlu\S2tTranscription::class);
         $this->transcriptions = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Optional. Marks the request as a preemptive draft: a turn the client (e.g. ondewo-csi) starts speculatively,
+     * e.g. on a partial transcript, and may later discard with <code>TurnControl.discard_draft</code>. The server
+     * records the mark on the session step of this request. A <code>DiscardDraft</code> deletes only a session step
+     * of the same session whose request carried this mark. A server that does not know this field ignores it and
+     * keeps the step.
+     *
+     * Generated from protobuf field <code>bool preemptive_draft = 15;</code>
+     * @return bool
+     */
+    public function getPreemptiveDraft()
+    {
+        return $this->preemptive_draft;
+    }
+
+    /**
+     * Optional. Marks the request as a preemptive draft: a turn the client (e.g. ondewo-csi) starts speculatively,
+     * e.g. on a partial transcript, and may later discard with <code>TurnControl.discard_draft</code>. The server
+     * records the mark on the session step of this request. A <code>DiscardDraft</code> deletes only a session step
+     * of the same session whose request carried this mark. A server that does not know this field ignores it and
+     * keeps the step.
+     *
+     * Generated from protobuf field <code>bool preemptive_draft = 15;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setPreemptiveDraft(bool $var)
+    {
+        $this->preemptive_draft = $var;
 
         return $this;
     }

@@ -79,6 +79,66 @@ class SessionsClient extends \Grpc\BaseStub {
     }
 
     /**
+     * Interrupts a turn of the session outside a <code>StreamingDetectIntent</code> stream: cancels it, reports what
+     * the user actually heard of its answer, or discards the session step of a preemptive draft. Meant for clients
+     * without a call-length stream (e.g. a stop button) and for a heard report that arrives after the stream closed.
+     * A voice client with an open stream sends the same <code>TurnControl</code> on that stream instead
+     * (<code>StreamingDetectIntentRequest.turn_control</code>). Requires the permission to interrupt a turn of the
+     * session's project.
+     * @param \Ondewo\Nlu\InterruptTurnRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\InterruptTurnResponse>
+     */
+    public function InterruptTurn(\Ondewo\Nlu\InterruptTurnRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/ondewo.nlu.Sessions/InterruptTurn',
+        $argument,
+        ['\Ondewo\Nlu\InterruptTurnResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * Prepares the intro session of a warm transfer: reads the history, the contexts and the slots of the source
+     * (caller) session, renders the intro text (with an LLM within a time budget, or from the TEMPLATE when the LLM
+     * fails or is not configured), strips every <code>&lt;SIP:…&gt;</code> markup from it, and stores the text, the
+     * configuration and the stage in the intro session, which must not exist yet. Writes no step into the source
+     * session. Idempotent per (<code>intro_session</code>, <code>transfer_request_id</code>): a repeated request
+     * answers the response of the first one. Answers <code>UNIMPLEMENTED</code> when the server's warm transfer
+     * feature is switched off, and <code>FAILED_PRECONDITION</code> with <code>reason=warm-intro-disabled-for-agent</code>
+     * when <code>Agent.warm_transfer_settings.enabled</code> is false. Requires the permission to run a warm transfer
+     * intro of the session's project. See <code>docs/warm_transfer.md</code>.
+     * @param \Ondewo\Nlu\PrepareWarmTransferIntroRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\PrepareWarmTransferIntroResponse>
+     */
+    public function PrepareWarmTransferIntro(\Ondewo\Nlu\PrepareWarmTransferIntroRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/ondewo.nlu.Sessions/PrepareWarmTransferIntro',
+        $argument,
+        ['\Ondewo\Nlu\PrepareWarmTransferIntroResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * Returns the decision the target gave in the intro session of a warm transfer. Never returns the reason text
+     * or the intro text. Answers <code>UNIMPLEMENTED</code> when the server's warm transfer feature is switched off.
+     * Requires the permission to run a warm transfer intro of the session's project.
+     * @param \Ondewo\Nlu\GetWarmTransferIntroOutcomeRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\WarmTransferIntroOutcome>
+     */
+    public function GetWarmTransferIntroOutcome(\Ondewo\Nlu\GetWarmTransferIntroOutcomeRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/ondewo.nlu.Sessions/GetWarmTransferIntroOutcome',
+        $argument,
+        ['\Ondewo\Nlu\WarmTransferIntroOutcome', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * *** SESSION RELATED ENDPOINTS *** //
      *
      * ListSessions: returns list of sessions from ondewo-kb; by default returns only session IDs

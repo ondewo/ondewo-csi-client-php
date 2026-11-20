@@ -48,6 +48,19 @@ class GetRemoteOperationContainerLogsResponse extends \Google\Protobuf\Internal\
      * Generated from protobuf field <code>bool has_more_older = 5;</code>
      */
     protected $has_more_older = false;
+    /**
+     * Cursor to fetch the next window, or to start a <code>StreamRemoteOperationContainerLogs</code> (or a
+     * <code>Logs.StreamLogs</code>) that continues exactly where this window ended.
+     *
+     * Generated from protobuf field <code>string next_resume_token = 6;</code>
+     */
+    protected $next_resume_token = '';
+    /**
+     * True when entries newer than this window exist.
+     *
+     * Generated from protobuf field <code>bool has_more_newer = 7;</code>
+     */
+    protected $has_more_newer = false;
 
     /**
      * Constructor.
@@ -67,6 +80,11 @@ class GetRemoteOperationContainerLogsResponse extends \Google\Protobuf\Internal\
      *     @type bool $has_more_older
      *           True when older lines than the returned window still exist (i.e. the window&apos;s first
      *           <code>seq</code> &gt; <code>min_available_seq</code>) — the client may keep scrolling up.
+     *     @type string $next_resume_token
+     *           Cursor to fetch the next window, or to start a <code>StreamRemoteOperationContainerLogs</code> (or a
+     *           <code>Logs.StreamLogs</code>) that continues exactly where this window ended.
+     *     @type bool $has_more_newer
+     *           True when entries newer than this window exist.
      * }
      */
     public function __construct($data = NULL) {
@@ -202,6 +220,59 @@ class GetRemoteOperationContainerLogsResponse extends \Google\Protobuf\Internal\
     public function setHasMoreOlder(bool $var)
     {
         $this->has_more_older = $var;
+
+        return $this;
+    }
+
+    /**
+     * Cursor to fetch the next window, or to start a <code>StreamRemoteOperationContainerLogs</code> (or a
+     * <code>Logs.StreamLogs</code>) that continues exactly where this window ended.
+     *
+     * Generated from protobuf field <code>string next_resume_token = 6;</code>
+     * @return string
+     */
+    public function getNextResumeToken()
+    {
+        return $this->next_resume_token;
+    }
+
+    /**
+     * Cursor to fetch the next window, or to start a <code>StreamRemoteOperationContainerLogs</code> (or a
+     * <code>Logs.StreamLogs</code>) that continues exactly where this window ended.
+     *
+     * Generated from protobuf field <code>string next_resume_token = 6;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setNextResumeToken(string $var)
+    {
+        GPBUtil::checkString($var, true);
+        $this->next_resume_token = $var;
+
+        return $this;
+    }
+
+    /**
+     * True when entries newer than this window exist.
+     *
+     * Generated from protobuf field <code>bool has_more_newer = 7;</code>
+     * @return bool
+     */
+    public function getHasMoreNewer()
+    {
+        return $this->has_more_newer;
+    }
+
+    /**
+     * True when entries newer than this window exist.
+     *
+     * Generated from protobuf field <code>bool has_more_newer = 7;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setHasMoreNewer(bool $var)
+    {
+        $this->has_more_newer = $var;
 
         return $this;
     }

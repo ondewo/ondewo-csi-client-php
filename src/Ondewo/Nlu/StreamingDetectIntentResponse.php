@@ -44,6 +44,27 @@ class StreamingDetectIntentResponse extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.google.rpc.Status webhook_status = 4;</code>
      */
     protected $webhook_status = null;
+    /**
+     * Set on the response that acknowledges a <code>CancelTurn</code> or a <code>DiscardDraft</code> sent as
+     * <code>StreamingDetectIntentRequest.turn_control</code>; a <code>HeardReport</code> is not acknowledged on the
+     * stream. A response that carries it carries no query result and is never an answer. The acknowledgement of a
+     * <code>CancelTurn</code> is sent after every other response of the cancelled turn, so no response of that turn
+     * follows it. The acknowledgement of a <code>DiscardDraft</code> is sent once the discard is decided, between
+     * turns, with the draft's <code>response_id</code> and no <code>client_turn_id</code>:
+     * <code>TURN_CONTROL_ACK_STATUS_DRAFT_DISCARDED</code> when the draft's session step was deleted,
+     * <code>TURN_CONTROL_ACK_STATUS_UNKNOWN_TURN</code> when no step was deleted. Not part of
+     * <code>telemetry_event</code>.
+     *
+     * Generated from protobuf field <code>.ondewo.nlu.TurnControlAck turn_control_ack = 12;</code>
+     */
+    protected $turn_control_ack = null;
+    /**
+     * Echo of <code>StreamingDetectIntentRequest.client_turn_id</code> of the turn this response belongs to; empty
+     * when the client sent none.
+     *
+     * Generated from protobuf field <code>string client_turn_id = 13;</code>
+     */
+    protected $client_turn_id = '';
     protected $telemetry_event;
 
     /**
@@ -75,6 +96,19 @@ class StreamingDetectIntentResponse extends \Google\Protobuf\Internal\Message
      *           Emitted when the running LLM token-usage totals are updated.
      *     @type \Ondewo\Nlu\LlmAgentNodeEvent $llm_agent_node_event
      *           Emitted when a node of an AI Team graph starts, completes or fails.
+     *     @type \Ondewo\Nlu\TurnControlAck $turn_control_ack
+     *           Set on the response that acknowledges a <code>CancelTurn</code> or a <code>DiscardDraft</code> sent as
+     *           <code>StreamingDetectIntentRequest.turn_control</code>; a <code>HeardReport</code> is not acknowledged on the
+     *           stream. A response that carries it carries no query result and is never an answer. The acknowledgement of a
+     *           <code>CancelTurn</code> is sent after every other response of the cancelled turn, so no response of that turn
+     *           follows it. The acknowledgement of a <code>DiscardDraft</code> is sent once the discard is decided, between
+     *           turns, with the draft's <code>response_id</code> and no <code>client_turn_id</code>:
+     *           <code>TURN_CONTROL_ACK_STATUS_DRAFT_DISCARDED</code> when the draft's session step was deleted,
+     *           <code>TURN_CONTROL_ACK_STATUS_UNKNOWN_TURN</code> when no step was deleted. Not part of
+     *           <code>telemetry_event</code>.
+     *     @type string $client_turn_id
+     *           Echo of <code>StreamingDetectIntentRequest.client_turn_id</code> of the turn this response belongs to; empty
+     *           when the client sent none.
      * }
      */
     public function __construct($data = NULL) {
@@ -421,6 +455,85 @@ class StreamingDetectIntentResponse extends \Google\Protobuf\Internal\Message
     public function setLlmAgentNodeEvent(\Ondewo\Nlu\LlmAgentNodeEvent|null $var)
     {
         $this->writeOneof(11, $var);
+
+        return $this;
+    }
+
+    /**
+     * Set on the response that acknowledges a <code>CancelTurn</code> or a <code>DiscardDraft</code> sent as
+     * <code>StreamingDetectIntentRequest.turn_control</code>; a <code>HeardReport</code> is not acknowledged on the
+     * stream. A response that carries it carries no query result and is never an answer. The acknowledgement of a
+     * <code>CancelTurn</code> is sent after every other response of the cancelled turn, so no response of that turn
+     * follows it. The acknowledgement of a <code>DiscardDraft</code> is sent once the discard is decided, between
+     * turns, with the draft's <code>response_id</code> and no <code>client_turn_id</code>:
+     * <code>TURN_CONTROL_ACK_STATUS_DRAFT_DISCARDED</code> when the draft's session step was deleted,
+     * <code>TURN_CONTROL_ACK_STATUS_UNKNOWN_TURN</code> when no step was deleted. Not part of
+     * <code>telemetry_event</code>.
+     *
+     * Generated from protobuf field <code>.ondewo.nlu.TurnControlAck turn_control_ack = 12;</code>
+     * @return \Ondewo\Nlu\TurnControlAck|null
+     */
+    public function getTurnControlAck()
+    {
+        return $this->turn_control_ack;
+    }
+
+    public function hasTurnControlAck()
+    {
+        return isset($this->turn_control_ack);
+    }
+
+    public function clearTurnControlAck()
+    {
+        unset($this->turn_control_ack);
+    }
+
+    /**
+     * Set on the response that acknowledges a <code>CancelTurn</code> or a <code>DiscardDraft</code> sent as
+     * <code>StreamingDetectIntentRequest.turn_control</code>; a <code>HeardReport</code> is not acknowledged on the
+     * stream. A response that carries it carries no query result and is never an answer. The acknowledgement of a
+     * <code>CancelTurn</code> is sent after every other response of the cancelled turn, so no response of that turn
+     * follows it. The acknowledgement of a <code>DiscardDraft</code> is sent once the discard is decided, between
+     * turns, with the draft's <code>response_id</code> and no <code>client_turn_id</code>:
+     * <code>TURN_CONTROL_ACK_STATUS_DRAFT_DISCARDED</code> when the draft's session step was deleted,
+     * <code>TURN_CONTROL_ACK_STATUS_UNKNOWN_TURN</code> when no step was deleted. Not part of
+     * <code>telemetry_event</code>.
+     *
+     * Generated from protobuf field <code>.ondewo.nlu.TurnControlAck turn_control_ack = 12;</code>
+     * @param \Ondewo\Nlu\TurnControlAck $var
+     * @return $this
+     */
+    public function setTurnControlAck(\Ondewo\Nlu\TurnControlAck|null $var)
+    {
+        $this->turn_control_ack = $var;
+
+        return $this;
+    }
+
+    /**
+     * Echo of <code>StreamingDetectIntentRequest.client_turn_id</code> of the turn this response belongs to; empty
+     * when the client sent none.
+     *
+     * Generated from protobuf field <code>string client_turn_id = 13;</code>
+     * @return string
+     */
+    public function getClientTurnId()
+    {
+        return $this->client_turn_id;
+    }
+
+    /**
+     * Echo of <code>StreamingDetectIntentRequest.client_turn_id</code> of the turn this response belongs to; empty
+     * when the client sent none.
+     *
+     * Generated from protobuf field <code>string client_turn_id = 13;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setClientTurnId(string $var)
+    {
+        GPBUtil::checkString($var, true);
+        $this->client_turn_id = $var;
 
         return $this;
     }

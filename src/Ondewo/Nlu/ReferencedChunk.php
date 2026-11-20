@@ -70,6 +70,12 @@ class ReferencedChunk extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string deep_link_url = 9;</code>
      */
     protected $deep_link_url = '';
+    /**
+     * Title of the document (optional).
+     *
+     * Generated from protobuf field <code>string document_title = 10;</code>
+     */
+    protected $document_title = '';
 
     /**
      * Constructor.
@@ -95,6 +101,8 @@ class ReferencedChunk extends \Google\Protobuf\Internal\Message
      *           For crawled documents the URL of the source document. For any other document it is left empty.
      *     @type string $deep_link_url
      *           For crawled documents link to the source document that directly jumps to the chunk's location on the page using a text fragment anchor (a bit fragile and might not always work). For any other document it is left empty.
+     *     @type string $document_title
+     *           Title of the document (optional).
      * }
      */
     public function __construct($data = NULL) {
@@ -331,6 +339,32 @@ class ReferencedChunk extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, true);
         $this->deep_link_url = $var;
+
+        return $this;
+    }
+
+    /**
+     * Title of the document (optional).
+     *
+     * Generated from protobuf field <code>string document_title = 10;</code>
+     * @return string
+     */
+    public function getDocumentTitle()
+    {
+        return $this->document_title;
+    }
+
+    /**
+     * Title of the document (optional).
+     *
+     * Generated from protobuf field <code>string document_title = 10;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setDocumentTitle(string $var)
+    {
+        GPBUtil::checkString($var, true);
+        $this->document_title = $var;
 
         return $this;
     }
