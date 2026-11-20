@@ -122,9 +122,8 @@ class ControlMessageServiceParameters extends \Google\Protobuf\Internal\Message
      * @param \Ondewo\T2s\RequestConfig $var
      * @return $this
      */
-    public function setT2SConfig($var)
+    public function setT2SConfig(\Ondewo\T2s\RequestConfig|null $var)
     {
-        GPBUtil::checkMessage($var, \Ondewo\T2s\RequestConfig::class);
         $this->writeOneof(1, $var);
 
         return $this;
@@ -153,9 +152,8 @@ class ControlMessageServiceParameters extends \Google\Protobuf\Internal\Message
      * @param \Ondewo\S2t\TranscribeRequestConfig $var
      * @return $this
      */
-    public function setS2TConfig($var)
+    public function setS2TConfig(\Ondewo\S2t\TranscribeRequestConfig|null $var)
     {
-        GPBUtil::checkMessage($var, \Ondewo\S2t\TranscribeRequestConfig::class);
         $this->writeOneof(2, $var);
 
         return $this;
@@ -179,9 +177,9 @@ class ControlMessageServiceParameters extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setTransferId($var)
+    public function setTransferId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->transfer_id = $var;
 
         return $this;
@@ -205,7 +203,7 @@ class ControlMessageServiceParameters extends \Google\Protobuf\Internal\Message
      * @param string[] $var
      * @return $this
      */
-    public function setWavFiles($var)
+    public function setWavFiles(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::BYTES);
         $this->wav_files = $arr;
@@ -231,9 +229,9 @@ class ControlMessageServiceParameters extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setText($var)
+    public function setText(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->text = $var;
 
         return $this;
@@ -267,9 +265,8 @@ class ControlMessageServiceParameters extends \Google\Protobuf\Internal\Message
      * @param \Ondewo\Nlu\Context $var
      * @return $this
      */
-    public function setContext($var)
+    public function setContext(\Ondewo\Nlu\Context|null $var)
     {
-        GPBUtil::checkMessage($var, \Ondewo\Nlu\Context::class);
         $this->context = $var;
 
         return $this;
@@ -293,9 +290,9 @@ class ControlMessageServiceParameters extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setSessionId($var)
+    public function setSessionId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->session_id = $var;
 
         return $this;
@@ -319,9 +316,9 @@ class ControlMessageServiceParameters extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setContextName($var)
+    public function setContextName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->context_name = $var;
 
         return $this;
@@ -355,9 +352,8 @@ class ControlMessageServiceParameters extends \Google\Protobuf\Internal\Message
      * @param \Ondewo\Csi\Condition $var
      * @return $this
      */
-    public function setConditionStart($var)
+    public function setConditionStart(\Ondewo\Csi\Condition|null $var)
     {
-        GPBUtil::checkMessage($var, \Ondewo\Csi\Condition::class);
         $this->condition_start = $var;
 
         return $this;
@@ -391,9 +387,8 @@ class ControlMessageServiceParameters extends \Google\Protobuf\Internal\Message
      * @param \Ondewo\Csi\Condition $var
      * @return $this
      */
-    public function setConditionEnd($var)
+    public function setConditionEnd(\Ondewo\Csi\Condition|null $var)
     {
-        GPBUtil::checkMessage($var, \Ondewo\Csi\Condition::class);
         $this->condition_end = $var;
 
         return $this;

@@ -68,6 +68,39 @@ class ControlStatus
      * Generated from protobuf enum <code>CALL_ENDED = 8;</code>
      */
     const CALL_ENDED = 8;
+    /**
+     * <p>Status reported by the client to the server via <code>SetControlStatus</code>, with
+     * <code>SetControlStatusRequest.playback_cut</code> set, after it aborted playback for a <code>BARGE_IN</code>
+     * whose <code>ControlStreamResponse</code> carried a non-zero <code>playback_cut_request_id</code>. It reports
+     * how much of the cut audio the caller can have heard.</p>
+     * <p>Like <code>CALL_ENDED</code> it is a report, not a state: the server never assigns it to the control status,
+     * never pushes it onto the control stream and leaves a pending <code>BARGE_IN</code> latched. The request must
+     * carry the in-container token (the <code>x-ondewo-sip-in-container-token</code> metadatum). A client sends it
+     * only after reading a non-zero <code>playback_cut_request_id</code>, so a server that does not consume cuts
+     * never receives it.</p>
+     * <p>How the server answers, checked in this order:</p>
+     * <ul>
+     *   <li>Token missing or not equal to the server's: <code>UNAUTHENTICATED</code>, nothing is recorded. A
+     *   server with NO token configured (a standalone server, or one relaunched without its token) refuses every
+     *   cut this way and never requests one: it sends <code>playback_cut_request_id = 0</code> and keeps its own
+     *   estimate. The client must not retry an <code>UNAUTHENTICATED</code> cut.</li>
+     *   <li><code>playback_cut</code> not set: <code>INVALID_ARGUMENT</code>, nothing is recorded. The client must
+     *   not retry it.</li>
+     *   <li><code>playback_cut_request_id</code> not pending on the current control stream (zero, unknown, already
+     *   answered, superseded by a newer <code>BARGE_IN</code>, from a previous stream or a previous call): OK, the
+     *   cut is dropped and the server keeps its own estimate.</li>
+     *   <li>Otherwise: OK, the cut is recorded and the id stops being pending.</li>
+     * </ul>
+     * <p>An OK answer carries the control status the server holds, unchanged:
+     * <code>old_control_status == new_control_status</code>, in practice <code>BARGE_IN</code> while it is still
+     * latched. It does not say whether the cut was recorded or dropped; nothing on the client depends on that.
+     * Any other status (<code>UNAVAILABLE</code>, <code>DEADLINE_EXCEEDED</code>, ...) means the cut may or may not
+     * have arrived; the client may retry it with the same <code>playback_cut_request_id</code>, because a second copy
+     * of an answered id is dropped.</p>
+     *
+     * Generated from protobuf enum <code>PLAYBACK_CUT = 9;</code>
+     */
+    const PLAYBACK_CUT = 9;
 
     private static $valueToName = [
         self::OK => 'OK',
@@ -79,6 +112,7 @@ class ControlStatus
         self::PLAYBACK_RESUMED => 'PLAYBACK_RESUMED',
         self::PLAYBACK_DONE => 'PLAYBACK_DONE',
         self::CALL_ENDED => 'CALL_ENDED',
+        self::PLAYBACK_CUT => 'PLAYBACK_CUT',
     ];
 
     public static function name($value)

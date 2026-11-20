@@ -82,9 +82,8 @@ class CheckUpstreamHealthResponse extends \Google\Protobuf\Internal\Message
      * @param \Google\Rpc\Status $var
      * @return $this
      */
-    public function setS2TStatus($var)
+    public function setS2TStatus(\Google\Rpc\Status|null $var)
     {
-        GPBUtil::checkMessage($var, \Google\Rpc\Status::class);
         $this->s2t_status = $var;
 
         return $this;
@@ -118,9 +117,8 @@ class CheckUpstreamHealthResponse extends \Google\Protobuf\Internal\Message
      * @param \Google\Rpc\Status $var
      * @return $this
      */
-    public function setNluStatus($var)
+    public function setNluStatus(\Google\Rpc\Status|null $var)
     {
-        GPBUtil::checkMessage($var, \Google\Rpc\Status::class);
         $this->nlu_status = $var;
 
         return $this;
@@ -154,9 +152,8 @@ class CheckUpstreamHealthResponse extends \Google\Protobuf\Internal\Message
      * @param \Google\Rpc\Status $var
      * @return $this
      */
-    public function setT2SStatus($var)
+    public function setT2SStatus(\Google\Rpc\Status|null $var)
     {
-        GPBUtil::checkMessage($var, \Google\Rpc\Status::class);
         $this->t2s_status = $var;
 
         return $this;

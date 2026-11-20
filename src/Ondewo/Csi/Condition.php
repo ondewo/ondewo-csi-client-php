@@ -79,7 +79,7 @@ class Condition extends \Google\Protobuf\Internal\Message
      * Condition type
      *
      * Generated from protobuf field <code>.ondewo.csi.ConditionType type = 1;</code>
-     * @return int
+     * @return int one of the values in {@see \Ondewo\Csi\ConditionType}
      */
     public function getType()
     {
@@ -90,10 +90,10 @@ class Condition extends \Google\Protobuf\Internal\Message
      * Condition type
      *
      * Generated from protobuf field <code>.ondewo.csi.ConditionType type = 1;</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Ondewo\Csi\ConditionType}
      * @return $this
      */
-    public function setType($var)
+    public function setType(int $var)
     {
         GPBUtil::checkEnum($var, \Ondewo\Csi\ConditionType::class);
         $this->type = $var;
@@ -119,9 +119,9 @@ class Condition extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setValue($var)
+    public function setValue(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->value = $var;
 
         return $this;

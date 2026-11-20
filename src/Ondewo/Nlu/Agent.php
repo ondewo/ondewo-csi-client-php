@@ -186,9 +186,9 @@ class Agent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setParent($var)
+    public function setParent(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->parent = $var;
 
         return $this;
@@ -212,9 +212,9 @@ class Agent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setDisplayName($var)
+    public function setDisplayName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->display_name = $var;
 
         return $this;
@@ -244,9 +244,9 @@ class Agent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setDefaultLanguageCode($var)
+    public function setDefaultLanguageCode(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->default_language_code = $var;
 
         return $this;
@@ -272,7 +272,7 @@ class Agent extends \Google\Protobuf\Internal\Message
      * @param string[] $var
      * @return $this
      */
-    public function setSupportedLanguageCodes($var)
+    public function setSupportedLanguageCodes(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->supported_language_codes = $arr;
@@ -302,9 +302,9 @@ class Agent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setTimeZone($var)
+    public function setTimeZone(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->time_zone = $var;
 
         return $this;
@@ -328,9 +328,9 @@ class Agent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setNluPlatform($var)
+    public function setNluPlatform(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->nlu_platform = $var;
 
         return $this;
@@ -364,9 +364,8 @@ class Agent extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setConfigs($var)
+    public function setConfigs(\Google\Protobuf\Struct|null $var)
     {
-        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->configs = $var;
 
         return $this;
@@ -394,9 +393,9 @@ class Agent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setOwnerId($var)
+    public function setOwnerId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->owner_id = $var;
 
         return $this;
@@ -407,7 +406,7 @@ class Agent extends \Google\Protobuf\Internal\Message
      * Read-only in the Agent message
      *
      * Generated from protobuf field <code>.ondewo.nlu.AgentStatus status = 9;</code>
-     * @return int
+     * @return int one of the values in {@see \Ondewo\Nlu\AgentStatus}
      */
     public function getStatus()
     {
@@ -419,10 +418,10 @@ class Agent extends \Google\Protobuf\Internal\Message
      * Read-only in the Agent message
      *
      * Generated from protobuf field <code>.ondewo.nlu.AgentStatus status = 9;</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Ondewo\Nlu\AgentStatus}
      * @return $this
      */
-    public function setStatus($var)
+    public function setStatus(int $var)
     {
         GPBUtil::checkEnum($var, \Ondewo\Nlu\AgentStatus::class);
         $this->status = $var;
@@ -448,9 +447,9 @@ class Agent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setDescription($var)
+    public function setDescription(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->description = $var;
 
         return $this;
@@ -484,9 +483,8 @@ class Agent extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Timestamp $var
      * @return $this
      */
-    public function setCreatedAt($var)
+    public function setCreatedAt(\Google\Protobuf\Timestamp|null $var)
     {
-        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
         $this->created_at = $var;
 
         return $this;
@@ -520,9 +518,8 @@ class Agent extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Timestamp $var
      * @return $this
      */
-    public function setModifiedAt($var)
+    public function setModifiedAt(\Google\Protobuf\Timestamp|null $var)
     {
-        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
         $this->modified_at = $var;
 
         return $this;
@@ -546,9 +543,9 @@ class Agent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setCreatedBy($var)
+    public function setCreatedBy(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->created_by = $var;
 
         return $this;
@@ -572,9 +569,9 @@ class Agent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setModifiedBy($var)
+    public function setModifiedBy(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->modified_by = $var;
 
         return $this;

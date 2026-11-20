@@ -2,6 +2,15 @@
 
 *****************
 
+## Release ONDEWO CSI PHP Client 5.9.0
+
+### Improvements
+
+* Tracking API Version [5.9.0](https://github.com/ondewo/ondewo-csi-api/releases/tag/5.9.0) ( [Documentation](https://ondewo.github.io/ondewo-csi-api/) )
+* Generated with ondewo-proto-compiler 5.17.0 (protoc 35.1); new runtime floors: `google/protobuf` 5.35.1 (a major step from 4.x), `grpc/grpc` 1.85.0, php >= 8.2.0 (protoc 35.1).
+
+*****************
+
 ## Release ONDEWO CSI PHP Client 5.7.0
 
 ### Improvements

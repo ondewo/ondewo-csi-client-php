@@ -102,9 +102,8 @@ class SetCallMediaControlResponse extends \Google\Protobuf\Internal\Message
      * @param \Ondewo\Csi\CallMediaControlLevel $var
      * @return $this
      */
-    public function setApplied($var)
+    public function setApplied(\Ondewo\Csi\CallMediaControlLevel|null $var)
     {
-        GPBUtil::checkMessage($var, \Ondewo\Csi\CallMediaControlLevel::class);
         $this->applied = $var;
 
         return $this;
@@ -128,9 +127,8 @@ class SetCallMediaControlResponse extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setChanged($var)
+    public function setChanged(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->changed = $var;
 
         return $this;
@@ -156,9 +154,8 @@ class SetCallMediaControlResponse extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setStale($var)
+    public function setStale(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->stale = $var;
 
         return $this;
@@ -182,9 +179,8 @@ class SetCallMediaControlResponse extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setBotPlaybackInFlight($var)
+    public function setBotPlaybackInFlight(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->bot_playback_in_flight = $var;
 
         return $this;
@@ -210,9 +206,9 @@ class SetCallMediaControlResponse extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setRefusalReason($var)
+    public function setRefusalReason(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->refusal_reason = $var;
 
         return $this;

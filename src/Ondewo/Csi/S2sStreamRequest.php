@@ -93,9 +93,9 @@ class S2sStreamRequest extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPipelineId($var)
+    public function setPipelineId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->pipeline_id = $var;
 
         return $this;
@@ -119,9 +119,9 @@ class S2sStreamRequest extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setSessionId($var)
+    public function setSessionId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->session_id = $var;
 
         return $this;
@@ -145,9 +145,9 @@ class S2sStreamRequest extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setAudio($var)
+    public function setAudio(string $var)
     {
-        GPBUtil::checkString($var, False);
+        GPBUtil::checkString($var, false);
         $this->audio = $var;
 
         return $this;
@@ -171,9 +171,8 @@ class S2sStreamRequest extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setEndOfStream($var)
+    public function setEndOfStream(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->end_of_stream = $var;
 
         return $this;
@@ -197,9 +196,9 @@ class S2sStreamRequest extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setInitialIntentDisplayName($var)
+    public function setInitialIntentDisplayName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->initial_intent_display_name = $var;
 
         return $this;

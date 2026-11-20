@@ -50,7 +50,7 @@ class SipTrigger extends \Google\Protobuf\Internal\Message
      * Type of the SIP trigger.
      *
      * Generated from protobuf field <code>.ondewo.csi.SipTrigger.SipTriggerType type = 1;</code>
-     * @return int
+     * @return int one of the values in {@see \Ondewo\Csi\SipTrigger\SipTriggerType}
      */
     public function getType()
     {
@@ -61,10 +61,10 @@ class SipTrigger extends \Google\Protobuf\Internal\Message
      * Type of the SIP trigger.
      *
      * Generated from protobuf field <code>.ondewo.csi.SipTrigger.SipTriggerType type = 1;</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Ondewo\Csi\SipTrigger\SipTriggerType}
      * @return $this
      */
-    public function setType($var)
+    public function setType(int $var)
     {
         GPBUtil::checkEnum($var, \Ondewo\Csi\SipTrigger\SipTriggerType::class);
         $this->type = $var;
@@ -100,9 +100,8 @@ class SipTrigger extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setContent($var)
+    public function setContent(\Google\Protobuf\Struct|null $var)
     {
-        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->content = $var;
 
         return $this;

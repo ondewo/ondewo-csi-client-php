@@ -114,9 +114,8 @@ class RemoteOperationContainerLogLine extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Timestamp $var
      * @return $this
      */
-    public function setTimestamp($var)
+    public function setTimestamp(\Google\Protobuf\Timestamp|null $var)
     {
-        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
         $this->timestamp = $var;
 
         return $this;
@@ -127,7 +126,7 @@ class RemoteOperationContainerLogLine extends \Google\Protobuf\Internal\Message
      * carried no recognizable level (e.g. a continuation / traceback line).
      *
      * Generated from protobuf field <code>.ondewo.nlu.LogSeverity level = 2;</code>
-     * @return int
+     * @return int one of the values in {@see \Ondewo\Nlu\LogSeverity}
      */
     public function getLevel()
     {
@@ -139,10 +138,10 @@ class RemoteOperationContainerLogLine extends \Google\Protobuf\Internal\Message
      * carried no recognizable level (e.g. a continuation / traceback line).
      *
      * Generated from protobuf field <code>.ondewo.nlu.LogSeverity level = 2;</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Ondewo\Nlu\LogSeverity}
      * @return $this
      */
-    public function setLevel($var)
+    public function setLevel(int $var)
     {
         GPBUtil::checkEnum($var, \Ondewo\Nlu\LogSeverity::class);
         $this->level = $var;
@@ -168,9 +167,9 @@ class RemoteOperationContainerLogLine extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setMessage($var)
+    public function setMessage(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->message = $var;
 
         return $this;
@@ -196,9 +195,9 @@ class RemoteOperationContainerLogLine extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setContainerId($var)
+    public function setContainerId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->container_id = $var;
 
         return $this;
@@ -222,9 +221,9 @@ class RemoteOperationContainerLogLine extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setContainerName($var)
+    public function setContainerName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->container_name = $var;
 
         return $this;
@@ -252,7 +251,7 @@ class RemoteOperationContainerLogLine extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setSeq($var)
+    public function setSeq(int|string $var)
     {
         GPBUtil::checkInt64($var);
         $this->seq = $var;

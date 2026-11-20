@@ -50,7 +50,7 @@ class ConversationsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Csi\S2sPipeline $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Google\Protobuf\GPBEmpty>
      */
     public function CreateS2sPipeline(\Ondewo\Csi\S2sPipeline $argument,
       $metadata = [], $options = []) {
@@ -79,7 +79,7 @@ class ConversationsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Csi\S2sPipelineId $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Csi\S2sPipeline>
      */
     public function GetS2sPipeline(\Ondewo\Csi\S2sPipelineId $argument,
       $metadata = [], $options = []) {
@@ -107,7 +107,7 @@ class ConversationsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Csi\S2sPipeline $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Google\Protobuf\GPBEmpty>
      */
     public function UpdateS2sPipeline(\Ondewo\Csi\S2sPipeline $argument,
       $metadata = [], $options = []) {
@@ -129,7 +129,7 @@ class ConversationsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Csi\S2sPipelineId $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Google\Protobuf\GPBEmpty>
      */
     public function DeleteS2sPipeline(\Ondewo\Csi\S2sPipelineId $argument,
       $metadata = [], $options = []) {
@@ -161,7 +161,7 @@ class ConversationsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Csi\ListS2sPipelinesRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Csi\ListS2sPipelinesResponse>
      */
     public function ListS2sPipelines(\Ondewo\Csi\ListS2sPipelinesRequest $argument,
       $metadata = [], $options = []) {
@@ -213,7 +213,7 @@ class ConversationsClient extends \Grpc\BaseStub {
      * @param \Google\Protobuf\GPBEmpty $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Csi\CheckUpstreamHealthResponse>
      */
     public function CheckUpstreamHealth(\Google\Protobuf\GPBEmpty $argument,
       $metadata = [], $options = []) {
@@ -243,7 +243,7 @@ class ConversationsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Csi\SetControlStatusRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Csi\SetControlStatusResponse>
      */
     public function SetControlStatus(\Ondewo\Csi\SetControlStatusRequest $argument,
       $metadata = [], $options = []) {
@@ -270,13 +270,67 @@ class ConversationsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Csi\CallMediaControlLevel $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Csi\SetCallMediaControlResponse>
      */
     public function SetCallMediaControl(\Ondewo\Csi\CallMediaControlLevel $argument,
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/ondewo.csi.Conversations/SetCallMediaControl',
         $argument,
         ['\Ondewo\Csi\SetCallMediaControlResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * <p>Report one DTMF key the caller pressed on the current call.</p>
+     *
+     * <p>Sent by ondewo-sip only, one request per key in the order received, authenticated with its in-container
+     * token (the <code>x-ondewo-sip-in-container-token</code> metadatum). A request without a valid token is refused
+     * with <code>UNAUTHENTICATED</code>.</p>
+     *
+     * <p>The server turns keys into caller input: a key pressed while the bot speaks is a barge-in, a key of a
+     * declared menu commits a turn at once, and a key string is collected until its terminator, its maximum length
+     * or its inter-digit timeout. A key of another call, a repeated or older sequence number, or a key while the
+     * server takes no keys is answered <code>accepted=false</code> with a reason token and changes nothing. Neither
+     * side ever logs the digit in clear.</p>
+     * @param \Ondewo\Csi\CallerDtmfRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall<\Ondewo\Csi\CallerDtmfResponse>
+     */
+    public function SetCallerDtmf(\Ondewo\Csi\CallerDtmfRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/ondewo.csi.Conversations/SetCallerDtmf',
+        $argument,
+        ['\Ondewo\Csi\CallerDtmfResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * <p>Deliver the outcome of a warm transfer that did NOT hand the caller over, so the bot can tell the
+     * caller.</p>
+     *
+     * <p>Sent by ondewo-sip only, authenticated with its in-container token (the
+     * <code>x-ondewo-sip-in-container-token</code> metadatum). A request without a valid token is refused with
+     * <code>UNAUTHENTICATED</code>. ondewo-sip sends it whenever a notice is attached to the release of the
+     * participant hold, after the level push of <code>SetCallMediaControl</code> or on its own when the level did not
+     * change, and re-sends a notice it holds as pending (resync) by this RPC only, never inside a level. It clears
+     * its pending notice on <code>QUEUED</code> or <code>DUPLICATE</code>.</p>
+     *
+     * <p>A queued notice is never dropped by the server, except by <code>CALL_ENDED</code>: there is no caller left
+     * to tell. It is spoken once the bot is unmuted, its listening is not paused and no utterance is in flight. See
+     * <code>WarmTransferOutcomeNotice</code> for how. This RPC has no generation, never changes the control status of
+     * <code>GetControlStream</code> / <code>SetControlStatus</code> and is never announced on the control stream. A
+     * server built against a CSI API before 5.9.0 answers <code>UNIMPLEMENTED</code>.</p>
+     * @param \Ondewo\Csi\WarmTransferOutcomeNotice $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall<\Ondewo\Csi\WarmTransferOutcomeNoticeResponse>
+     */
+    public function DeliverWarmTransferOutcomeNotice(\Ondewo\Csi\WarmTransferOutcomeNotice $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/ondewo.csi.Conversations/DeliverWarmTransferOutcomeNotice',
+        $argument,
+        ['\Ondewo\Csi\WarmTransferOutcomeNoticeResponse', 'decode'],
         $metadata, $options);
     }
 

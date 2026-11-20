@@ -88,9 +88,9 @@ class S2sPipeline extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setId($var)
+    public function setId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->id = $var;
 
         return $this;
@@ -114,9 +114,9 @@ class S2sPipeline extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setS2TPipelineId($var)
+    public function setS2TPipelineId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->s2t_pipeline_id = $var;
 
         return $this;
@@ -140,9 +140,9 @@ class S2sPipeline extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setNluProjectId($var)
+    public function setNluProjectId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->nlu_project_id = $var;
 
         return $this;
@@ -166,9 +166,9 @@ class S2sPipeline extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setNluLanguageCode($var)
+    public function setNluLanguageCode(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->nlu_language_code = $var;
 
         return $this;
@@ -192,9 +192,9 @@ class S2sPipeline extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setT2SPipelineId($var)
+    public function setT2SPipelineId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->t2s_pipeline_id = $var;
 
         return $this;

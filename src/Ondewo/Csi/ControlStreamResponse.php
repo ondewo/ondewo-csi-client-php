@@ -41,6 +41,19 @@ class ControlStreamResponse extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.ondewo.csi.CallMediaControlLevel media_control = 3;</code>
      */
     protected $media_control = null;
+    /**
+     * <p>Optional. Non-zero only on a <code>BARGE_IN</code> transition sent by a server that consumes
+     * <code>PlaybackCut</code>: the server asks the client to report the cut with <code>PLAYBACK_CUT</code> and to
+     * echo this value in <code>PlaybackCut.playback_cut_request_id</code>. The value is the server's
+     * process-lifetime, never rewound sequence number of that transition, so every barge-in (including a second one
+     * during a resumed remainder, which keeps its epoch) has its own id.</p>
+     * <p><code>0</code> means no cut is requested: an older server, a server with no in-container token
+     * configured, the seed of a new control stream, a media-control message, or any status other than
+     * <code>BARGE_IN</code>.</p>
+     *
+     * Generated from protobuf field <code>uint64 playback_cut_request_id = 4;</code>
+     */
+    protected $playback_cut_request_id = 0;
 
     /**
      * Constructor.
@@ -61,6 +74,15 @@ class ControlStreamResponse extends \Google\Protobuf\Internal\Message
      *           server echoes the current control status and epoch in it, but a client that applied that
      *           <code>control_status</code> (e.g. <code>OK</code>) would un-latch a pending <code>BARGE_IN</code>.
      *           Messages without this field keep their meaning unchanged.</p>
+     *     @type int|string $playback_cut_request_id
+     *           <p>Optional. Non-zero only on a <code>BARGE_IN</code> transition sent by a server that consumes
+     *           <code>PlaybackCut</code>: the server asks the client to report the cut with <code>PLAYBACK_CUT</code> and to
+     *           echo this value in <code>PlaybackCut.playback_cut_request_id</code>. The value is the server's
+     *           process-lifetime, never rewound sequence number of that transition, so every barge-in (including a second one
+     *           during a resumed remainder, which keeps its epoch) has its own id.</p>
+     *           <p><code>0</code> means no cut is requested: an older server, a server with no in-container token
+     *           configured, the seed of a new control stream, a media-control message, or any status other than
+     *           <code>BARGE_IN</code>.</p>
      * }
      */
     public function __construct($data = NULL) {
@@ -72,7 +94,7 @@ class ControlStreamResponse extends \Google\Protobuf\Internal\Message
      * Control status
      *
      * Generated from protobuf field <code>.ondewo.csi.ControlStatus control_status = 1;</code>
-     * @return int
+     * @return int one of the values in {@see \Ondewo\Csi\ControlStatus}
      */
     public function getControlStatus()
     {
@@ -83,10 +105,10 @@ class ControlStreamResponse extends \Google\Protobuf\Internal\Message
      * Control status
      *
      * Generated from protobuf field <code>.ondewo.csi.ControlStatus control_status = 1;</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Ondewo\Csi\ControlStatus}
      * @return $this
      */
-    public function setControlStatus($var)
+    public function setControlStatus(int $var)
     {
         GPBUtil::checkEnum($var, \Ondewo\Csi\ControlStatus::class);
         $this->control_status = $var;
@@ -112,7 +134,7 @@ class ControlStreamResponse extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setEpoch($var)
+    public function setEpoch(int|string $var)
     {
         GPBUtil::checkUint64($var);
         $this->epoch = $var;
@@ -162,10 +184,49 @@ class ControlStreamResponse extends \Google\Protobuf\Internal\Message
      * @param \Ondewo\Csi\CallMediaControlLevel $var
      * @return $this
      */
-    public function setMediaControl($var)
+    public function setMediaControl(\Ondewo\Csi\CallMediaControlLevel|null $var)
     {
-        GPBUtil::checkMessage($var, \Ondewo\Csi\CallMediaControlLevel::class);
         $this->media_control = $var;
+
+        return $this;
+    }
+
+    /**
+     * <p>Optional. Non-zero only on a <code>BARGE_IN</code> transition sent by a server that consumes
+     * <code>PlaybackCut</code>: the server asks the client to report the cut with <code>PLAYBACK_CUT</code> and to
+     * echo this value in <code>PlaybackCut.playback_cut_request_id</code>. The value is the server's
+     * process-lifetime, never rewound sequence number of that transition, so every barge-in (including a second one
+     * during a resumed remainder, which keeps its epoch) has its own id.</p>
+     * <p><code>0</code> means no cut is requested: an older server, a server with no in-container token
+     * configured, the seed of a new control stream, a media-control message, or any status other than
+     * <code>BARGE_IN</code>.</p>
+     *
+     * Generated from protobuf field <code>uint64 playback_cut_request_id = 4;</code>
+     * @return int|string
+     */
+    public function getPlaybackCutRequestId()
+    {
+        return $this->playback_cut_request_id;
+    }
+
+    /**
+     * <p>Optional. Non-zero only on a <code>BARGE_IN</code> transition sent by a server that consumes
+     * <code>PlaybackCut</code>: the server asks the client to report the cut with <code>PLAYBACK_CUT</code> and to
+     * echo this value in <code>PlaybackCut.playback_cut_request_id</code>. The value is the server's
+     * process-lifetime, never rewound sequence number of that transition, so every barge-in (including a second one
+     * during a resumed remainder, which keeps its epoch) has its own id.</p>
+     * <p><code>0</code> means no cut is requested: an older server, a server with no in-container token
+     * configured, the seed of a new control stream, a media-control message, or any status other than
+     * <code>BARGE_IN</code>.</p>
+     *
+     * Generated from protobuf field <code>uint64 playback_cut_request_id = 4;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setPlaybackCutRequestId(int|string $var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->playback_cut_request_id = $var;
 
         return $this;
     }

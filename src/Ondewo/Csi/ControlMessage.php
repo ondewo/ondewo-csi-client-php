@@ -82,7 +82,7 @@ class ControlMessage extends \Google\Protobuf\Internal\Message
      * Service to control. Valid service names are: <code>ondewo_nlu</code>, <code>ondewo_t2s</code>, <code>ondewo_s2t</code>, <code>ondewo_sip</code> and <code>ondewo_csi</code>.
      *
      * Generated from protobuf field <code>.ondewo.csi.ControlMessageServiceName service = 1;</code>
-     * @return int
+     * @return int one of the values in {@see \Ondewo\Csi\ControlMessageServiceName}
      */
     public function getService()
     {
@@ -93,10 +93,10 @@ class ControlMessage extends \Google\Protobuf\Internal\Message
      * Service to control. Valid service names are: <code>ondewo_nlu</code>, <code>ondewo_t2s</code>, <code>ondewo_s2t</code>, <code>ondewo_sip</code> and <code>ondewo_csi</code>.
      *
      * Generated from protobuf field <code>.ondewo.csi.ControlMessageServiceName service = 1;</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Ondewo\Csi\ControlMessageServiceName}
      * @return $this
      */
-    public function setService($var)
+    public function setService(int $var)
     {
         GPBUtil::checkEnum($var, \Ondewo\Csi\ControlMessageServiceName::class);
         $this->service = $var;
@@ -108,7 +108,7 @@ class ControlMessage extends \Google\Protobuf\Internal\Message
      * Method to invoke on the service
      *
      * Generated from protobuf field <code>.ondewo.csi.ControlMessageServiceMethod method = 2;</code>
-     * @return int
+     * @return int one of the values in {@see \Ondewo\Csi\ControlMessageServiceMethod}
      */
     public function getMethod()
     {
@@ -119,10 +119,10 @@ class ControlMessage extends \Google\Protobuf\Internal\Message
      * Method to invoke on the service
      *
      * Generated from protobuf field <code>.ondewo.csi.ControlMessageServiceMethod method = 2;</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Ondewo\Csi\ControlMessageServiceMethod}
      * @return $this
      */
-    public function setMethod($var)
+    public function setMethod(int $var)
     {
         GPBUtil::checkEnum($var, \Ondewo\Csi\ControlMessageServiceMethod::class);
         $this->method = $var;
@@ -158,9 +158,8 @@ class ControlMessage extends \Google\Protobuf\Internal\Message
      * @param \Ondewo\Csi\ControlMessageServiceParameters $var
      * @return $this
      */
-    public function setParameters($var)
+    public function setParameters(\Ondewo\Csi\ControlMessageServiceParameters|null $var)
     {
-        GPBUtil::checkMessage($var, \Ondewo\Csi\ControlMessageServiceParameters::class);
         $this->parameters = $var;
 
         return $this;

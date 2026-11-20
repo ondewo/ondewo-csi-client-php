@@ -101,9 +101,8 @@ class CallMediaControlLevel extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setBotMuted($var)
+    public function setBotMuted(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->bot_muted = $var;
 
         return $this;
@@ -133,9 +132,8 @@ class CallMediaControlLevel extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setListeningPaused($var)
+    public function setListeningPaused(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->listening_paused = $var;
 
         return $this;
@@ -161,7 +159,7 @@ class CallMediaControlLevel extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setGeneration($var)
+    public function setGeneration(int|string $var)
     {
         GPBUtil::checkUint64($var);
         $this->generation = $var;
@@ -189,9 +187,9 @@ class CallMediaControlLevel extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setReason($var)
+    public function setReason(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->reason = $var;
 
         return $this;

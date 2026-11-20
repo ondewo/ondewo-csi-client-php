@@ -92,7 +92,7 @@ class GetRemoteOperationContainerLogsResponse extends \Google\Protobuf\Internal\
      * @param \Ondewo\Nlu\RemoteOperationContainerLogLine[] $var
      * @return $this
      */
-    public function setLogLines($var)
+    public function setLogLines(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Ondewo\Nlu\RemoteOperationContainerLogLine::class);
         $this->log_lines = $arr;
@@ -118,9 +118,8 @@ class GetRemoteOperationContainerLogsResponse extends \Google\Protobuf\Internal\
      * @param bool $var
      * @return $this
      */
-    public function setTruncated($var)
+    public function setTruncated(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->truncated = $var;
 
         return $this;
@@ -146,7 +145,7 @@ class GetRemoteOperationContainerLogsResponse extends \Google\Protobuf\Internal\
      * @param int|string $var
      * @return $this
      */
-    public function setMinAvailableSeq($var)
+    public function setMinAvailableSeq(int|string $var)
     {
         GPBUtil::checkInt64($var);
         $this->min_available_seq = $var;
@@ -172,7 +171,7 @@ class GetRemoteOperationContainerLogsResponse extends \Google\Protobuf\Internal\
      * @param int|string $var
      * @return $this
      */
-    public function setMaxAvailableSeq($var)
+    public function setMaxAvailableSeq(int|string $var)
     {
         GPBUtil::checkInt64($var);
         $this->max_available_seq = $var;
@@ -200,9 +199,8 @@ class GetRemoteOperationContainerLogsResponse extends \Google\Protobuf\Internal\
      * @param bool $var
      * @return $this
      */
-    public function setHasMoreOlder($var)
+    public function setHasMoreOlder(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->has_more_older = $var;
 
         return $this;

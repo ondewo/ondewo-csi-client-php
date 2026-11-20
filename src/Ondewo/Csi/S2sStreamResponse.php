@@ -51,6 +51,17 @@ class S2sStreamResponse extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint64 turn_epoch = 7;</code>
      */
     protected $turn_epoch = 0;
+    /**
+     * <p>Optional. One-based sequence number of this response on its <code>S2sStream</code>, assigned by the server
+     * when it yields the response and counted over EVERY response of the stream (audio, NLU and SIP trigger), so it
+     * is independent of whether anything is stored or framed. <code>0</code> means the server does not number its
+     * responses (an older server).</p>
+     * <p>It names a response that has no <code>utterance_id</code> (the greeting, a merged utterance, a filler,
+     * the apology) in <code>PlaybackCut.response_sequence</code> and in a <code>PLAYBACK_DONE</code> report.</p>
+     *
+     * Generated from protobuf field <code>uint64 response_sequence = 8;</code>
+     */
+    protected $response_sequence = 0;
     protected $response;
 
     /**
@@ -73,6 +84,13 @@ class S2sStreamResponse extends \Google\Protobuf\Internal\Message
      *           Optional. If <code>true</code>, this is the last chunk of the utterance identified by <code>utterance_id</code>
      *     @type int|string $turn_epoch
      *           Optional. Monotonic turn epoch of the conversation turn that produced this response. Used by consumers to fence stale audio of an interrupted turn
+     *     @type int|string $response_sequence
+     *           <p>Optional. One-based sequence number of this response on its <code>S2sStream</code>, assigned by the server
+     *           when it yields the response and counted over EVERY response of the stream (audio, NLU and SIP trigger), so it
+     *           is independent of whether anything is stored or framed. <code>0</code> means the server does not number its
+     *           responses (an older server).</p>
+     *           <p>It names a response that has no <code>utterance_id</code> (the greeting, a merged utterance, a filler,
+     *           the apology) in <code>PlaybackCut.response_sequence</code> and in a <code>PLAYBACK_DONE</code> report.</p>
      * }
      */
     public function __construct($data = NULL) {
@@ -103,9 +121,8 @@ class S2sStreamResponse extends \Google\Protobuf\Internal\Message
      * @param \Ondewo\Nlu\DetectIntentResponse $var
      * @return $this
      */
-    public function setDetectIntentResponse($var)
+    public function setDetectIntentResponse(\Ondewo\Nlu\DetectIntentResponse|null $var)
     {
-        GPBUtil::checkMessage($var, \Ondewo\Nlu\DetectIntentResponse::class);
         $this->writeOneof(1, $var);
 
         return $this;
@@ -134,9 +151,8 @@ class S2sStreamResponse extends \Google\Protobuf\Internal\Message
      * @param \Ondewo\T2s\SynthesizeResponse $var
      * @return $this
      */
-    public function setSynthesizeResponse($var)
+    public function setSynthesizeResponse(\Ondewo\T2s\SynthesizeResponse|null $var)
     {
-        GPBUtil::checkMessage($var, \Ondewo\T2s\SynthesizeResponse::class);
         $this->writeOneof(2, $var);
 
         return $this;
@@ -165,9 +181,8 @@ class S2sStreamResponse extends \Google\Protobuf\Internal\Message
      * @param \Ondewo\Csi\SipTrigger $var
      * @return $this
      */
-    public function setSipTrigger($var)
+    public function setSipTrigger(\Ondewo\Csi\SipTrigger|null $var)
     {
-        GPBUtil::checkMessage($var, \Ondewo\Csi\SipTrigger::class);
         $this->writeOneof(3, $var);
 
         return $this;
@@ -191,9 +206,9 @@ class S2sStreamResponse extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setUtteranceId($var)
+    public function setUtteranceId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->utterance_id = $var;
 
         return $this;
@@ -217,7 +232,7 @@ class S2sStreamResponse extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setChunkIndex($var)
+    public function setChunkIndex(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->chunk_index = $var;
@@ -243,9 +258,8 @@ class S2sStreamResponse extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setLastChunk($var)
+    public function setLastChunk(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->last_chunk = $var;
 
         return $this;
@@ -269,10 +283,46 @@ class S2sStreamResponse extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setTurnEpoch($var)
+    public function setTurnEpoch(int|string $var)
     {
         GPBUtil::checkUint64($var);
         $this->turn_epoch = $var;
+
+        return $this;
+    }
+
+    /**
+     * <p>Optional. One-based sequence number of this response on its <code>S2sStream</code>, assigned by the server
+     * when it yields the response and counted over EVERY response of the stream (audio, NLU and SIP trigger), so it
+     * is independent of whether anything is stored or framed. <code>0</code> means the server does not number its
+     * responses (an older server).</p>
+     * <p>It names a response that has no <code>utterance_id</code> (the greeting, a merged utterance, a filler,
+     * the apology) in <code>PlaybackCut.response_sequence</code> and in a <code>PLAYBACK_DONE</code> report.</p>
+     *
+     * Generated from protobuf field <code>uint64 response_sequence = 8;</code>
+     * @return int|string
+     */
+    public function getResponseSequence()
+    {
+        return $this->response_sequence;
+    }
+
+    /**
+     * <p>Optional. One-based sequence number of this response on its <code>S2sStream</code>, assigned by the server
+     * when it yields the response and counted over EVERY response of the stream (audio, NLU and SIP trigger), so it
+     * is independent of whether anything is stored or framed. <code>0</code> means the server does not number its
+     * responses (an older server).</p>
+     * <p>It names a response that has no <code>utterance_id</code> (the greeting, a merged utterance, a filler,
+     * the apology) in <code>PlaybackCut.response_sequence</code> and in a <code>PLAYBACK_DONE</code> report.</p>
+     *
+     * Generated from protobuf field <code>uint64 response_sequence = 8;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setResponseSequence(int|string $var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->response_sequence = $var;
 
         return $this;
     }

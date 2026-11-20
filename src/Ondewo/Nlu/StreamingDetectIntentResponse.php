@@ -102,9 +102,9 @@ class StreamingDetectIntentResponse extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setResponseId($var)
+    public function setResponseId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->response_id = $var;
 
         return $this;
@@ -138,9 +138,8 @@ class StreamingDetectIntentResponse extends \Google\Protobuf\Internal\Message
      * @param \Ondewo\Nlu\StreamingRecognitionResult $var
      * @return $this
      */
-    public function setRecognitionResult($var)
+    public function setRecognitionResult(\Ondewo\Nlu\StreamingRecognitionResult|null $var)
     {
-        GPBUtil::checkMessage($var, \Ondewo\Nlu\StreamingRecognitionResult::class);
         $this->recognition_result = $var;
 
         return $this;
@@ -174,9 +173,8 @@ class StreamingDetectIntentResponse extends \Google\Protobuf\Internal\Message
      * @param \Ondewo\Nlu\QueryResult $var
      * @return $this
      */
-    public function setQueryResult($var)
+    public function setQueryResult(\Ondewo\Nlu\QueryResult|null $var)
     {
-        GPBUtil::checkMessage($var, \Ondewo\Nlu\QueryResult::class);
         $this->query_result = $var;
 
         return $this;
@@ -210,9 +208,8 @@ class StreamingDetectIntentResponse extends \Google\Protobuf\Internal\Message
      * @param \Google\Rpc\Status $var
      * @return $this
      */
-    public function setWebhookStatus($var)
+    public function setWebhookStatus(\Google\Rpc\Status|null $var)
     {
-        GPBUtil::checkMessage($var, \Google\Rpc\Status::class);
         $this->webhook_status = $var;
 
         return $this;
@@ -241,9 +238,8 @@ class StreamingDetectIntentResponse extends \Google\Protobuf\Internal\Message
      * @param \Ondewo\Nlu\LlmCallStartedEvent $var
      * @return $this
      */
-    public function setLlmCallStarted($var)
+    public function setLlmCallStarted(\Ondewo\Nlu\LlmCallStartedEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Ondewo\Nlu\LlmCallStartedEvent::class);
         $this->writeOneof(5, $var);
 
         return $this;
@@ -272,9 +268,8 @@ class StreamingDetectIntentResponse extends \Google\Protobuf\Internal\Message
      * @param \Ondewo\Nlu\LlmCallFinishedEvent $var
      * @return $this
      */
-    public function setLlmCallFinished($var)
+    public function setLlmCallFinished(\Ondewo\Nlu\LlmCallFinishedEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Ondewo\Nlu\LlmCallFinishedEvent::class);
         $this->writeOneof(6, $var);
 
         return $this;
@@ -303,9 +298,8 @@ class StreamingDetectIntentResponse extends \Google\Protobuf\Internal\Message
      * @param \Ondewo\Nlu\LlmToolCallStartedEvent $var
      * @return $this
      */
-    public function setLlmToolCallStarted($var)
+    public function setLlmToolCallStarted(\Ondewo\Nlu\LlmToolCallStartedEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Ondewo\Nlu\LlmToolCallStartedEvent::class);
         $this->writeOneof(7, $var);
 
         return $this;
@@ -334,9 +328,8 @@ class StreamingDetectIntentResponse extends \Google\Protobuf\Internal\Message
      * @param \Ondewo\Nlu\LlmToolCallFinishedEvent $var
      * @return $this
      */
-    public function setLlmToolCallFinished($var)
+    public function setLlmToolCallFinished(\Ondewo\Nlu\LlmToolCallFinishedEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Ondewo\Nlu\LlmToolCallFinishedEvent::class);
         $this->writeOneof(8, $var);
 
         return $this;
@@ -365,9 +358,8 @@ class StreamingDetectIntentResponse extends \Google\Protobuf\Internal\Message
      * @param \Ondewo\Nlu\LlmThinkingDeltaEvent $var
      * @return $this
      */
-    public function setLlmThinkingDelta($var)
+    public function setLlmThinkingDelta(\Ondewo\Nlu\LlmThinkingDeltaEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Ondewo\Nlu\LlmThinkingDeltaEvent::class);
         $this->writeOneof(9, $var);
 
         return $this;
@@ -396,9 +388,8 @@ class StreamingDetectIntentResponse extends \Google\Protobuf\Internal\Message
      * @param \Ondewo\Nlu\LlmTokenUsageUpdateEvent $var
      * @return $this
      */
-    public function setLlmTokenUsageUpdate($var)
+    public function setLlmTokenUsageUpdate(\Ondewo\Nlu\LlmTokenUsageUpdateEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Ondewo\Nlu\LlmTokenUsageUpdateEvent::class);
         $this->writeOneof(10, $var);
 
         return $this;
@@ -427,9 +418,8 @@ class StreamingDetectIntentResponse extends \Google\Protobuf\Internal\Message
      * @param \Ondewo\Nlu\LlmAgentNodeEvent $var
      * @return $this
      */
-    public function setLlmAgentNodeEvent($var)
+    public function setLlmAgentNodeEvent(\Ondewo\Nlu\LlmAgentNodeEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Ondewo\Nlu\LlmAgentNodeEvent::class);
         $this->writeOneof(11, $var);
 
         return $this;

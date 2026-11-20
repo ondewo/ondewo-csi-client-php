@@ -142,9 +142,9 @@ class GetRemoteOperationContainerLogsRequest extends \Google\Protobuf\Internal\M
      * @param string $var
      * @return $this
      */
-    public function setName($var)
+    public function setName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->name = $var;
 
         return $this;
@@ -155,7 +155,7 @@ class GetRemoteOperationContainerLogsRequest extends \Google\Protobuf\Internal\M
      * default) returns every line regardless of level.
      *
      * Generated from protobuf field <code>.ondewo.nlu.LogSeverity min_log_level = 2;</code>
-     * @return int
+     * @return int one of the values in {@see \Ondewo\Nlu\LogSeverity}
      */
     public function getMinLogLevel()
     {
@@ -167,10 +167,10 @@ class GetRemoteOperationContainerLogsRequest extends \Google\Protobuf\Internal\M
      * default) returns every line regardless of level.
      *
      * Generated from protobuf field <code>.ondewo.nlu.LogSeverity min_log_level = 2;</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Ondewo\Nlu\LogSeverity}
      * @return $this
      */
-    public function setMinLogLevel($var)
+    public function setMinLogLevel(int $var)
     {
         GPBUtil::checkEnum($var, \Ondewo\Nlu\LogSeverity::class);
         $this->min_log_level = $var;
@@ -208,9 +208,8 @@ class GetRemoteOperationContainerLogsRequest extends \Google\Protobuf\Internal\M
      * @param \Google\Protobuf\Timestamp $var
      * @return $this
      */
-    public function setStartTime($var)
+    public function setStartTime(\Google\Protobuf\Timestamp|null $var)
     {
-        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
         $this->start_time = $var;
 
         return $this;
@@ -246,9 +245,8 @@ class GetRemoteOperationContainerLogsRequest extends \Google\Protobuf\Internal\M
      * @param \Google\Protobuf\Timestamp $var
      * @return $this
      */
-    public function setEndTime($var)
+    public function setEndTime(\Google\Protobuf\Timestamp|null $var)
     {
-        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
         $this->end_time = $var;
 
         return $this;
@@ -274,7 +272,7 @@ class GetRemoteOperationContainerLogsRequest extends \Google\Protobuf\Internal\M
      * @param int $var
      * @return $this
      */
-    public function setMaxLines($var)
+    public function setMaxLines(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->max_lines = $var;
@@ -302,9 +300,9 @@ class GetRemoteOperationContainerLogsRequest extends \Google\Protobuf\Internal\M
      * @param string $var
      * @return $this
      */
-    public function setRegex($var)
+    public function setRegex(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->regex = $var;
 
         return $this;
@@ -334,9 +332,9 @@ class GetRemoteOperationContainerLogsRequest extends \Google\Protobuf\Internal\M
      * @param string $var
      * @return $this
      */
-    public function setContainerId($var)
+    public function setContainerId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->container_id = $var;
 
         return $this;
@@ -364,7 +362,7 @@ class GetRemoteOperationContainerLogsRequest extends \Google\Protobuf\Internal\M
      * @param int|string $var
      * @return $this
      */
-    public function setBeforeSeq($var)
+    public function setBeforeSeq(int|string $var)
     {
         GPBUtil::checkInt64($var);
         $this->before_seq = $var;
@@ -392,7 +390,7 @@ class GetRemoteOperationContainerLogsRequest extends \Google\Protobuf\Internal\M
      * @param int|string $var
      * @return $this
      */
-    public function setAfterSeq($var)
+    public function setAfterSeq(int|string $var)
     {
         GPBUtil::checkInt64($var);
         $this->after_seq = $var;

@@ -90,9 +90,9 @@ class StreamRemoteOperationContainerLogsRequest extends \Google\Protobuf\Interna
      * @param string $var
      * @return $this
      */
-    public function setName($var)
+    public function setName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->name = $var;
 
         return $this;
@@ -103,7 +103,7 @@ class StreamRemoteOperationContainerLogsRequest extends \Google\Protobuf\Interna
      * default) streams every line regardless of level.
      *
      * Generated from protobuf field <code>.ondewo.nlu.LogSeverity min_log_level = 2;</code>
-     * @return int
+     * @return int one of the values in {@see \Ondewo\Nlu\LogSeverity}
      */
     public function getMinLogLevel()
     {
@@ -115,10 +115,10 @@ class StreamRemoteOperationContainerLogsRequest extends \Google\Protobuf\Interna
      * default) streams every line regardless of level.
      *
      * Generated from protobuf field <code>.ondewo.nlu.LogSeverity min_log_level = 2;</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Ondewo\Nlu\LogSeverity}
      * @return $this
      */
-    public function setMinLogLevel($var)
+    public function setMinLogLevel(int $var)
     {
         GPBUtil::checkEnum($var, \Ondewo\Nlu\LogSeverity::class);
         $this->min_log_level = $var;
@@ -146,7 +146,7 @@ class StreamRemoteOperationContainerLogsRequest extends \Google\Protobuf\Interna
      * @param int $var
      * @return $this
      */
-    public function setTailLines($var)
+    public function setTailLines(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->tail_lines = $var;
@@ -178,9 +178,9 @@ class StreamRemoteOperationContainerLogsRequest extends \Google\Protobuf\Interna
      * @param string $var
      * @return $this
      */
-    public function setContainerId($var)
+    public function setContainerId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->container_id = $var;
 
         return $this;

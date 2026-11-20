@@ -10,7 +10,8 @@ use Google\Protobuf\Internal\GPBUtil;
 use Google\Protobuf\RepeatedField;
 
 /**
- * Response of setting the control status with the old and new status objects.
+ * Response of setting the control status with the old and new status objects. For a report that is not a state
+ * (<code>PLAYBACK_CUT</code>) both fields carry the status the server holds, unchanged.
  *
  * Generated from protobuf message <code>ondewo.csi.SetControlStatusResponse</code>
  */
@@ -50,7 +51,7 @@ class SetControlStatusResponse extends \Google\Protobuf\Internal\Message
      * Previous 'old' control status
      *
      * Generated from protobuf field <code>.ondewo.csi.ControlStatus old_control_status = 1;</code>
-     * @return int
+     * @return int one of the values in {@see \Ondewo\Csi\ControlStatus}
      */
     public function getOldControlStatus()
     {
@@ -61,10 +62,10 @@ class SetControlStatusResponse extends \Google\Protobuf\Internal\Message
      * Previous 'old' control status
      *
      * Generated from protobuf field <code>.ondewo.csi.ControlStatus old_control_status = 1;</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Ondewo\Csi\ControlStatus}
      * @return $this
      */
-    public function setOldControlStatus($var)
+    public function setOldControlStatus(int $var)
     {
         GPBUtil::checkEnum($var, \Ondewo\Csi\ControlStatus::class);
         $this->old_control_status = $var;
@@ -76,7 +77,7 @@ class SetControlStatusResponse extends \Google\Protobuf\Internal\Message
      * Current 'new' control status
      *
      * Generated from protobuf field <code>.ondewo.csi.ControlStatus new_control_status = 2;</code>
-     * @return int
+     * @return int one of the values in {@see \Ondewo\Csi\ControlStatus}
      */
     public function getNewControlStatus()
     {
@@ -87,10 +88,10 @@ class SetControlStatusResponse extends \Google\Protobuf\Internal\Message
      * Current 'new' control status
      *
      * Generated from protobuf field <code>.ondewo.csi.ControlStatus new_control_status = 2;</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Ondewo\Csi\ControlStatus}
      * @return $this
      */
-    public function setNewControlStatus($var)
+    public function setNewControlStatus(int $var)
     {
         GPBUtil::checkEnum($var, \Ondewo\Csi\ControlStatus::class);
         $this->new_control_status = $var;

@@ -22,6 +22,28 @@ class SetControlStatusRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.ondewo.csi.ControlStatus control_status = 1;</code>
      */
     protected $control_status = 0;
+    /**
+     * Optional. Set if and only if <code>control_status</code> is <code>PLAYBACK_CUT</code>. A
+     * <code>PLAYBACK_CUT</code> without it is answered <code>INVALID_ARGUMENT</code>; any other status ignores it
+     *
+     * Generated from protobuf field <code>.ondewo.csi.PlaybackCut playback_cut = 2;</code>
+     */
+    protected $playback_cut = null;
+    /**
+     * <p>Optional. Set only with <code>PLAYBACK_DONE</code>: the <code>S2sStreamResponse.utterance_id</code> of the
+     * utterance whose playback completed. Empty for a response that carries no <code>utterance_id</code>; that one
+     * is named by <code>response_sequence</code>.</p>
+     *
+     * Generated from protobuf field <code>string utterance_id = 3;</code>
+     */
+    protected $utterance_id = '';
+    /**
+     * <p>Optional. Set only with <code>PLAYBACK_DONE</code>: the <code>S2sStreamResponse.response_sequence</code> of
+     * the last response of the completed utterance. <code>0</code> if the server does not number its responses.</p>
+     *
+     * Generated from protobuf field <code>uint64 response_sequence = 4;</code>
+     */
+    protected $response_sequence = 0;
 
     /**
      * Constructor.
@@ -31,6 +53,16 @@ class SetControlStatusRequest extends \Google\Protobuf\Internal\Message
      *
      *     @type int $control_status
      *           Control status
+     *     @type \Ondewo\Csi\PlaybackCut $playback_cut
+     *           Optional. Set if and only if <code>control_status</code> is <code>PLAYBACK_CUT</code>. A
+     *           <code>PLAYBACK_CUT</code> without it is answered <code>INVALID_ARGUMENT</code>; any other status ignores it
+     *     @type string $utterance_id
+     *           <p>Optional. Set only with <code>PLAYBACK_DONE</code>: the <code>S2sStreamResponse.utterance_id</code> of the
+     *           utterance whose playback completed. Empty for a response that carries no <code>utterance_id</code>; that one
+     *           is named by <code>response_sequence</code>.</p>
+     *     @type int|string $response_sequence
+     *           <p>Optional. Set only with <code>PLAYBACK_DONE</code>: the <code>S2sStreamResponse.response_sequence</code> of
+     *           the last response of the completed utterance. <code>0</code> if the server does not number its responses.</p>
      * }
      */
     public function __construct($data = NULL) {
@@ -42,7 +74,7 @@ class SetControlStatusRequest extends \Google\Protobuf\Internal\Message
      * Control status
      *
      * Generated from protobuf field <code>.ondewo.csi.ControlStatus control_status = 1;</code>
-     * @return int
+     * @return int one of the values in {@see \Ondewo\Csi\ControlStatus}
      */
     public function getControlStatus()
     {
@@ -53,13 +85,108 @@ class SetControlStatusRequest extends \Google\Protobuf\Internal\Message
      * Control status
      *
      * Generated from protobuf field <code>.ondewo.csi.ControlStatus control_status = 1;</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Ondewo\Csi\ControlStatus}
      * @return $this
      */
-    public function setControlStatus($var)
+    public function setControlStatus(int $var)
     {
         GPBUtil::checkEnum($var, \Ondewo\Csi\ControlStatus::class);
         $this->control_status = $var;
+
+        return $this;
+    }
+
+    /**
+     * Optional. Set if and only if <code>control_status</code> is <code>PLAYBACK_CUT</code>. A
+     * <code>PLAYBACK_CUT</code> without it is answered <code>INVALID_ARGUMENT</code>; any other status ignores it
+     *
+     * Generated from protobuf field <code>.ondewo.csi.PlaybackCut playback_cut = 2;</code>
+     * @return \Ondewo\Csi\PlaybackCut|null
+     */
+    public function getPlaybackCut()
+    {
+        return $this->playback_cut;
+    }
+
+    public function hasPlaybackCut()
+    {
+        return isset($this->playback_cut);
+    }
+
+    public function clearPlaybackCut()
+    {
+        unset($this->playback_cut);
+    }
+
+    /**
+     * Optional. Set if and only if <code>control_status</code> is <code>PLAYBACK_CUT</code>. A
+     * <code>PLAYBACK_CUT</code> without it is answered <code>INVALID_ARGUMENT</code>; any other status ignores it
+     *
+     * Generated from protobuf field <code>.ondewo.csi.PlaybackCut playback_cut = 2;</code>
+     * @param \Ondewo\Csi\PlaybackCut $var
+     * @return $this
+     */
+    public function setPlaybackCut(\Ondewo\Csi\PlaybackCut|null $var)
+    {
+        $this->playback_cut = $var;
+
+        return $this;
+    }
+
+    /**
+     * <p>Optional. Set only with <code>PLAYBACK_DONE</code>: the <code>S2sStreamResponse.utterance_id</code> of the
+     * utterance whose playback completed. Empty for a response that carries no <code>utterance_id</code>; that one
+     * is named by <code>response_sequence</code>.</p>
+     *
+     * Generated from protobuf field <code>string utterance_id = 3;</code>
+     * @return string
+     */
+    public function getUtteranceId()
+    {
+        return $this->utterance_id;
+    }
+
+    /**
+     * <p>Optional. Set only with <code>PLAYBACK_DONE</code>: the <code>S2sStreamResponse.utterance_id</code> of the
+     * utterance whose playback completed. Empty for a response that carries no <code>utterance_id</code>; that one
+     * is named by <code>response_sequence</code>.</p>
+     *
+     * Generated from protobuf field <code>string utterance_id = 3;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setUtteranceId(string $var)
+    {
+        GPBUtil::checkString($var, true);
+        $this->utterance_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * <p>Optional. Set only with <code>PLAYBACK_DONE</code>: the <code>S2sStreamResponse.response_sequence</code> of
+     * the last response of the completed utterance. <code>0</code> if the server does not number its responses.</p>
+     *
+     * Generated from protobuf field <code>uint64 response_sequence = 4;</code>
+     * @return int|string
+     */
+    public function getResponseSequence()
+    {
+        return $this->response_sequence;
+    }
+
+    /**
+     * <p>Optional. Set only with <code>PLAYBACK_DONE</code>: the <code>S2sStreamResponse.response_sequence</code> of
+     * the last response of the completed utterance. <code>0</code> if the server does not number its responses.</p>
+     *
+     * Generated from protobuf field <code>uint64 response_sequence = 4;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setResponseSequence(int|string $var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->response_sequence = $var;
 
         return $this;
     }

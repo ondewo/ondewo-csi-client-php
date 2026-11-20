@@ -120,7 +120,7 @@ class ReferencedChunk extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setReferenceIndex($var)
+    public function setReferenceIndex(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->reference_index = $var;
@@ -146,9 +146,9 @@ class ReferencedChunk extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setDatasetId($var)
+    public function setDatasetId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->dataset_id = $var;
 
         return $this;
@@ -172,9 +172,9 @@ class ReferencedChunk extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setDocumentId($var)
+    public function setDocumentId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->document_id = $var;
 
         return $this;
@@ -198,9 +198,9 @@ class ReferencedChunk extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setChunkId($var)
+    public function setChunkId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->chunk_id = $var;
 
         return $this;
@@ -224,9 +224,9 @@ class ReferencedChunk extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setDocumentName($var)
+    public function setDocumentName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->document_name = $var;
 
         return $this;
@@ -250,9 +250,9 @@ class ReferencedChunk extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setContent($var)
+    public function setContent(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->content = $var;
 
         return $this;
@@ -276,9 +276,8 @@ class ReferencedChunk extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setSimilarity($var)
+    public function setSimilarity(float $var)
     {
-        GPBUtil::checkFloat($var);
         $this->similarity = $var;
 
         return $this;
@@ -302,9 +301,9 @@ class ReferencedChunk extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setDocumentUrl($var)
+    public function setDocumentUrl(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->document_url = $var;
 
         return $this;
@@ -328,9 +327,9 @@ class ReferencedChunk extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setDeepLinkUrl($var)
+    public function setDeepLinkUrl(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->deep_link_url = $var;
 
         return $this;

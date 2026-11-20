@@ -54,7 +54,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\DetectIntentRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\DetectIntentResponse>
      */
     public function DetectIntent(\Ondewo\Nlu\DetectIntentRequest $argument,
       $metadata = [], $options = []) {
@@ -85,7 +85,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\ListSessionsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\ListSessionsResponse>
      */
     public function ListSessions(\Ondewo\Nlu\ListSessionsRequest $argument,
       $metadata = [], $options = []) {
@@ -100,7 +100,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\GetSessionRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\Session>
      */
     public function GetSession(\Ondewo\Nlu\GetSessionRequest $argument,
       $metadata = [], $options = []) {
@@ -115,7 +115,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\CreateSessionRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\Session>
      */
     public function CreateSession(\Ondewo\Nlu\CreateSessionRequest $argument,
       $metadata = [], $options = []) {
@@ -130,7 +130,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\CreateSessionStepRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\SessionStep>
      */
     public function CreateSessionStep(\Ondewo\Nlu\CreateSessionStepRequest $argument,
       $metadata = [], $options = []) {
@@ -145,7 +145,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\GetSessionStepRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\SessionStep>
      */
     public function GetSessionStep(\Ondewo\Nlu\GetSessionStepRequest $argument,
       $metadata = [], $options = []) {
@@ -160,7 +160,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\UpdateSessionStepRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\SessionStep>
      */
     public function UpdateSessionStep(\Ondewo\Nlu\UpdateSessionStepRequest $argument,
       $metadata = [], $options = []) {
@@ -175,7 +175,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\DeleteSessionStepRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Google\Protobuf\GPBEmpty>
      */
     public function DeleteSessionStep(\Ondewo\Nlu\DeleteSessionStepRequest $argument,
       $metadata = [], $options = []) {
@@ -190,7 +190,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\DeleteSessionRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Google\Protobuf\GPBEmpty>
      */
     public function DeleteSession(\Ondewo\Nlu\DeleteSessionRequest $argument,
       $metadata = [], $options = []) {
@@ -207,7 +207,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\ListSessionLabelsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\ListSessionLabelsResponse>
      */
     public function ListSessionLabels(\Ondewo\Nlu\ListSessionLabelsRequest $argument,
       $metadata = [], $options = []) {
@@ -222,7 +222,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\ListSessionLabelsOfAllSessionsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\ListSessionLabelsResponse>
      */
     public function ListSessionLabelsOfAllSessions(\Ondewo\Nlu\ListSessionLabelsOfAllSessionsRequest $argument,
       $metadata = [], $options = []) {
@@ -237,7 +237,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\ListLanguageCodesOfAllSessionsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\ListLanguageCodesResponse>
      */
     public function ListLanguageCodesOfAllSessions(\Ondewo\Nlu\ListLanguageCodesOfAllSessionsRequest $argument,
       $metadata = [], $options = []) {
@@ -252,7 +252,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\ListMatchedIntentsOfAllSessionsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\ListMatchedIntentsResponse>
      */
     public function ListMatchedIntentsOfAllSessions(\Ondewo\Nlu\ListMatchedIntentsOfAllSessionsRequest $argument,
       $metadata = [], $options = []) {
@@ -267,7 +267,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\ListMatchedEntityTypesOfAllSessionsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\ListMatchedEntityTypesResponse>
      */
     public function ListMatchedEntityTypesOfAllSessions(\Ondewo\Nlu\ListMatchedEntityTypesOfAllSessionsRequest $argument,
       $metadata = [], $options = []) {
@@ -282,7 +282,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\ListUserIdsOfAllSessionsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\ListUserIdsResponse>
      */
     public function ListUserIdsOfAllSessions(\Ondewo\Nlu\ListUserIdsOfAllSessionsRequest $argument,
       $metadata = [], $options = []) {
@@ -297,7 +297,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\ListIdentifiedUserIdsOfAllSessionsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\ListIdentifiedUserIdsResponse>
      */
     public function ListIdentifiedUserIdsOfAllSessions(\Ondewo\Nlu\ListIdentifiedUserIdsOfAllSessionsRequest $argument,
       $metadata = [], $options = []) {
@@ -312,7 +312,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\ListTagsOfAllSessionsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\ListTagsResponse>
      */
     public function ListTagsOfAllSessions(\Ondewo\Nlu\ListTagsOfAllSessionsRequest $argument,
       $metadata = [], $options = []) {
@@ -327,7 +327,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\ListInputContextsOfAllSessionsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\ListInputContextsResponse>
      */
     public function ListInputContextsOfAllSessions(\Ondewo\Nlu\ListInputContextsOfAllSessionsRequest $argument,
       $metadata = [], $options = []) {
@@ -342,7 +342,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\ListOutputContextsOfAllSessionsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\ListOutputContextsResponse>
      */
     public function ListOutputContextsOfAllSessions(\Ondewo\Nlu\ListOutputContextsOfAllSessionsRequest $argument,
       $metadata = [], $options = []) {
@@ -357,7 +357,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\ListPlatformsOfAllSessionsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\ListPlatformsResponse>
      */
     public function ListPlatformsOfAllSessions(\Ondewo\Nlu\ListPlatformsOfAllSessionsRequest $argument,
       $metadata = [], $options = []) {
@@ -372,7 +372,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\ListAccountIdsOfAllSessionsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\ListAccountIdsResponse>
      */
     public function ListAccountIdsOfAllSessions(\Ondewo\Nlu\ListAccountIdsOfAllSessionsRequest $argument,
       $metadata = [], $options = []) {
@@ -387,7 +387,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\ListPropertyIdsOfAllSessionsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\ListPropertyIdsResponse>
      */
     public function ListPropertyIdsOfAllSessions(\Ondewo\Nlu\ListPropertyIdsOfAllSessionsRequest $argument,
       $metadata = [], $options = []) {
@@ -402,7 +402,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\ListDatastreamIdsOfAllSessionsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\ListDatastreamIdsResponse>
      */
     public function ListDatastreamIdsOfAllSessions(\Ondewo\Nlu\ListDatastreamIdsOfAllSessionsRequest $argument,
       $metadata = [], $options = []) {
@@ -417,7 +417,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\ListOriginIdsOfAllSessionsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\ListOriginIdsResponse>
      */
     public function ListOriginIdsOfAllSessions(\Ondewo\Nlu\ListOriginIdsOfAllSessionsRequest $argument,
       $metadata = [], $options = []) {
@@ -432,7 +432,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\AddSessionLabelsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\Session>
      */
     public function AddSessionLabels(\Ondewo\Nlu\AddSessionLabelsRequest $argument,
       $metadata = [], $options = []) {
@@ -447,7 +447,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\DeleteSessionLabelsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\Session>
      */
     public function DeleteSessionLabels(\Ondewo\Nlu\DeleteSessionLabelsRequest $argument,
       $metadata = [], $options = []) {
@@ -462,7 +462,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\AddSessionCommentRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\Comment>
      */
     public function AddSessionComment(\Ondewo\Nlu\AddSessionCommentRequest $argument,
       $metadata = [], $options = []) {
@@ -477,7 +477,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\DeleteSessionCommentsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\Session>
      */
     public function DeleteSessionComments(\Ondewo\Nlu\DeleteSessionCommentsRequest $argument,
       $metadata = [], $options = []) {
@@ -492,7 +492,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\UpdateSessionCommentsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\Session>
      */
     public function UpdateSessionComments(\Ondewo\Nlu\UpdateSessionCommentsRequest $argument,
       $metadata = [], $options = []) {
@@ -507,7 +507,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\ListSessionCommentsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\ListSessionCommentsResponse>
      */
     public function ListSessionComments(\Ondewo\Nlu\ListSessionCommentsRequest $argument,
       $metadata = [], $options = []) {
@@ -523,7 +523,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\ListSessionCommentsOfAllSessionsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\ListSessionCommentsResponse>
      */
     public function ListSessionCommentsOfAllSessions(\Ondewo\Nlu\ListSessionCommentsOfAllSessionsRequest $argument,
       $metadata = [], $options = []) {
@@ -542,7 +542,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\AddSessionFeedbackRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\SessionFeedback>
      */
     public function AddSessionFeedback(\Ondewo\Nlu\AddSessionFeedbackRequest $argument,
       $metadata = [], $options = []) {
@@ -558,7 +558,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\AddSessionStepFeedbackRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\SessionFeedback>
      */
     public function AddSessionStepFeedback(\Ondewo\Nlu\AddSessionStepFeedbackRequest $argument,
       $metadata = [], $options = []) {
@@ -573,7 +573,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\GetSessionFeedbackRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\SessionFeedback>
      */
     public function GetSessionFeedback(\Ondewo\Nlu\GetSessionFeedbackRequest $argument,
       $metadata = [], $options = []) {
@@ -588,7 +588,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\UpdateSessionFeedbackRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\SessionFeedback>
      */
     public function UpdateSessionFeedback(\Ondewo\Nlu\UpdateSessionFeedbackRequest $argument,
       $metadata = [], $options = []) {
@@ -603,7 +603,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\DeleteSessionFeedbackRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Google\Protobuf\GPBEmpty>
      */
     public function DeleteSessionFeedback(\Ondewo\Nlu\DeleteSessionFeedbackRequest $argument,
       $metadata = [], $options = []) {
@@ -618,7 +618,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\ListSessionFeedbackRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\ListSessionFeedbackResponse>
      */
     public function ListSessionFeedback(\Ondewo\Nlu\ListSessionFeedbackRequest $argument,
       $metadata = [], $options = []) {
@@ -633,7 +633,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\ListSessionFeedbackOfAllSessionsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\ListSessionFeedbackResponse>
      */
     public function ListSessionFeedbackOfAllSessions(\Ondewo\Nlu\ListSessionFeedbackOfAllSessionsRequest $argument,
       $metadata = [], $options = []) {
@@ -649,7 +649,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\GetFeedbackStatisticsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\GetFeedbackStatisticsResponse>
      */
     public function GetFeedbackStatistics(\Ondewo\Nlu\GetFeedbackStatisticsRequest $argument,
       $metadata = [], $options = []) {
@@ -664,7 +664,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\GetFeedbackStatisticsTimeSeriesRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\GetFeedbackStatisticsTimeSeriesResponse>
      */
     public function GetFeedbackStatisticsTimeSeries(\Ondewo\Nlu\GetFeedbackStatisticsTimeSeriesRequest $argument,
       $metadata = [], $options = []) {
@@ -682,7 +682,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\ListSessionReviewsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\ListSessionReviewsResponse>
      */
     public function ListSessionReviews(\Ondewo\Nlu\ListSessionReviewsRequest $argument,
       $metadata = [], $options = []) {
@@ -698,7 +698,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\GetSessionReviewRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\SessionReview>
      */
     public function GetSessionReview(\Ondewo\Nlu\GetSessionReviewRequest $argument,
       $metadata = [], $options = []) {
@@ -714,7 +714,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\GetLatestSessionReviewRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\SessionReview>
      */
     public function GetLatestSessionReview(\Ondewo\Nlu\GetLatestSessionReviewRequest $argument,
       $metadata = [], $options = []) {
@@ -731,7 +731,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\CreateSessionReviewRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\SessionReview>
      */
     public function CreateSessionReview(\Ondewo\Nlu\CreateSessionReviewRequest $argument,
       $metadata = [], $options = []) {
@@ -748,7 +748,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\GetAudioFilesRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\GetAudioFilesResponse>
      */
     public function GetAudioFiles(\Ondewo\Nlu\GetAudioFilesRequest $argument,
       $metadata = [], $options = []) {
@@ -765,7 +765,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\AddAudioFilesRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\AddAudioFilesResponse>
      */
     public function AddAudioFiles(\Ondewo\Nlu\AddAudioFilesRequest $argument,
       $metadata = [], $options = []) {
@@ -782,7 +782,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\DeleteAudioFilesRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\DeleteAudioFilesResponse>
      */
     public function DeleteAudioFiles(\Ondewo\Nlu\DeleteAudioFilesRequest $argument,
       $metadata = [], $options = []) {
@@ -799,7 +799,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\GetAudioFileOfSessionRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\AudioFileResource>
      */
     public function GetAudioFileOfSession(\Ondewo\Nlu\GetAudioFileOfSessionRequest $argument,
       $metadata = [], $options = []) {
@@ -815,7 +815,7 @@ class SessionsClient extends \Grpc\BaseStub {
      * @param \Ondewo\Nlu\ListAudioFilesRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Grpc\UnaryCall<\Ondewo\Nlu\ListAudioFilesResponse>
      */
     public function ListAudioFiles(\Ondewo\Nlu\ListAudioFilesRequest $argument,
       $metadata = [], $options = []) {

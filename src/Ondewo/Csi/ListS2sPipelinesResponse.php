@@ -56,7 +56,7 @@ class ListS2sPipelinesResponse extends \Google\Protobuf\Internal\Message
      * @param \Ondewo\Csi\S2sPipeline[] $var
      * @return $this
      */
-    public function setPipelines($var)
+    public function setPipelines(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Ondewo\Csi\S2sPipeline::class);
         $this->pipelines = $arr;
